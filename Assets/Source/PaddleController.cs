@@ -26,12 +26,12 @@ public class PaddleController : MonoBehaviour
     [SerializeField]
     private PaddleNavPoint paddleNavPoint;
 
-    private Rigidbody rigidBody;
+    private Rigidbody paddleRigidBody;
 
     // Called before start
     public void Awake()
     {
-        rigidBody = GetComponent<Rigidbody>();
+        paddleRigidBody = GetComponent<Rigidbody>();
     }
 
     // Use this for initialization
@@ -39,6 +39,8 @@ public class PaddleController : MonoBehaviour
     {
         // Set the default location of the paddle
         defaultLocation = transform.position;
+
+        destinationLocation = defaultLocation;
 
         // Get the nav point location
         navPointLocation = paddleNavPoint.transform.position;
@@ -73,7 +75,7 @@ public class PaddleController : MonoBehaviour
     // Always move to the default location of the paddle
     private void moveToDefaultLocation()
     {
-        transform.position = Vector3.Lerp(transform.position, destinationLocation, Time.deltaTime * locationBlendTime);
+        paddleRigidBody.MovePosition(Vector3.Lerp(transform.position, destinationLocation, Time.deltaTime * locationBlendTime));
     }
 
     // When a object collides with the paddle
@@ -86,7 +88,11 @@ public class PaddleController : MonoBehaviour
 
             if (ballRigidBody)
             {
-                ballRigidBody.AddForce(new Vector3(0.0f, ballBounceForce, 0.0f));
+                // If the location of the paddle is not the same as the nav point location then bounce the ball
+                if (transform.position != navPointLocation)
+                {
+                    //ballRigidBody.AddForce(new Vector3(0.0f, ballBounceForce, 0.0f));
+                }
             }
         }
     }
