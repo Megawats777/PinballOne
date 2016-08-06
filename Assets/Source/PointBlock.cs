@@ -47,6 +47,13 @@ public class PointBlock : MonoBehaviour
     [SerializeField]
     private float reEnableTime;
 
+    // The time until the object changes destination
+    [SerializeField]
+    private float destinationChangeDelay;
+
+    // Reference to the object's rigidbody
+    private Rigidbody blockRigidbody;
+
     // Called before start
     public void Awake()
     {
@@ -55,6 +62,9 @@ public class PointBlock : MonoBehaviour
 
         // Get the mesh renderer
         objectMeshRenderer = GetComponent<Renderer>();
+
+        // Get the object's rigidbody
+        blockRigidbody = GetComponent<Rigidbody>();
     }
 
     // Use this for initialization
@@ -67,7 +77,10 @@ public class PointBlock : MonoBehaviour
         navPointLocation = pointBlockNavPoint.transform.position;
 
         // Set the destination location
-        destinationLocation = navPointLocation;
+        destinationLocation = defaultLocation;
+
+        // Change the destination for the block
+        InvokeRepeating("setDestination", 0.0f, destinationChangeDelay);
     }
 
     // Update is called once per frame
@@ -75,6 +88,9 @@ public class PointBlock : MonoBehaviour
     {
         // Set the opacity of the object
         setObjectOpactiy();
+
+        // Move the object to it's destination
+        moveObject();
     }
 
     // Set the opacity of the object
@@ -86,16 +102,26 @@ public class PointBlock : MonoBehaviour
                                                       objectMeshRenderer.material.color.b, newOpacity);
     }
 
-    // Set the position lerp value
-    private void setPositionLerpValue()
+    // Set the destination for the nav block 
+    private void setDestination()
     {
+        // If the destination is the nav point set the destination as the default location
+        if (destinationLocation == navPointLocation)
+        {
+            destinationLocation = defaultLocation;
+        }
 
+        // If the destination is the default location set the destination as the nav point
+        else if (destinationLocation == defaultLocation)
+        {
+            destinationLocation = navPointLocation;
+        }
     }
 
     // Move the object to the its destination
     private void moveObject()
     {
-
+        blockRigidbody.MovePosition(Vector3.Lerp(transform.position, destinationLocation, Time.deltaTime * movementSpeed));
     }
 
     // When the point block overlaps with an object

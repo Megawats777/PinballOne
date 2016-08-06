@@ -18,10 +18,6 @@ public class PaddleController : MonoBehaviour
     [SerializeField]
     private float locationBlendTime = 1.0f;
 
-    // Ball bounce force
-    [SerializeField]
-    private float ballBounceForce = 200.0f;
-
     // Reference to the paddle nav point
     [SerializeField]
     private PaddleNavPoint paddleNavPoint;
