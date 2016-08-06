@@ -31,7 +31,7 @@ public class FailLaser : MonoBehaviour
             Destroy(other.gameObject);
 
             // Play a particle effect
-            ParticleManager.playParticleEffect(ballDestroyedParticleEffect, transform.position, Quaternion.identity);
+            ParticleManager.playParticleEffect(ballDestroyedParticleEffect, transform.position, Quaternion.identity, 5.0f);
             
             // Show the game over screen after a few seconds
         }

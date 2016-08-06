@@ -56,6 +56,12 @@ public class PaddleController : MonoBehaviour
         moveToDefaultLocation();
     }
 
+    // Physics Update
+    public void FixedUpdate()
+    {
+       
+    }
+
     // Control paddle movement
     private void controlPaddleMovement()
     {
@@ -81,19 +87,6 @@ public class PaddleController : MonoBehaviour
     // When a object collides with the paddle
     public void OnCollisionEnter(Collision collision)
     {
-        // If the ball collides with the paddle bounce the ball up
-        if (collision.gameObject.CompareTag("Ball"))
-        {
-            Rigidbody ballRigidBody = collision.gameObject.GetComponent<Rigidbody>();
 
-            if (ballRigidBody)
-            {
-                // If the location of the paddle is not the same as the nav point location then bounce the ball
-                if (transform.position != navPointLocation)
-                {
-                    //ballRigidBody.AddForce(new Vector3(0.0f, ballBounceForce, 0.0f));
-                }
-            }
-        }
     }
 }
