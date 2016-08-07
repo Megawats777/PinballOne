@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
     private int playerScore;
 
     // The amount of balls the player has left
-    private int playerBallCount;
+    private int playerBallCount = 3;
 
     /*-External References-*/
     MainHUDManager mainHUDManager;

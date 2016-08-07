@@ -128,10 +128,6 @@ Prefab:
       propertyPath: paddleNavPoint
       value: 
       objectReference: {fileID: 2015556906}
-    - target: {fileID: 409814, guid: a9cb883f3d08e3e4d82602774da1a08a, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 7.7
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a9cb883f3d08e3e4d82602774da1a08a, type: 2}
   m_IsPrefabParent: 0
@@ -364,6 +360,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!1 &725333287 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 121916, guid: 4572059da8362b4468e382f436ed3636, type: 2}
+  m_PrefabInternal: {fileID: 1978025837}
+--- !u!114 &725333288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 725333287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b920dee03644579439eda613806d91c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1010066147
 GameObject:
   m_ObjectHideFlags: 0
@@ -1115,6 +1126,10 @@ Prefab:
     - target: {fileID: 480906, guid: 4572059da8362b4468e382f436ed3636, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2347274, guid: 4572059da8362b4468e382f436ed3636, type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4572059da8362b4468e382f436ed3636, type: 2}
