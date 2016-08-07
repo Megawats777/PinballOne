@@ -54,6 +54,9 @@ public class PointBlock : MonoBehaviour
     // Reference to the object's rigidbody
     private Rigidbody blockRigidbody;
 
+    /*-External References-*/
+    GameManager gameManager;
+
     // Called before start
     public void Awake()
     {
@@ -65,6 +68,9 @@ public class PointBlock : MonoBehaviour
 
         // Get the object's rigidbody
         blockRigidbody = GetComponent<Rigidbody>();
+
+        // Get the GameManager
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     // Use this for initialization
@@ -131,6 +137,9 @@ public class PointBlock : MonoBehaviour
         if (other.gameObject.CompareTag("Ball"))
         {
             // Add points
+            gameManager.setPlayerScore(gameManager.getPlayerScore() + pointValue);
+
+            // Play a sound effect
 
             // Play a particle effect
             ParticleManager.playParticleEffect(collisionParticleEffect, transform.position, Quaternion.identity, 5.0f);
