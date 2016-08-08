@@ -42,7 +42,7 @@ public class FailLaser : MonoBehaviour
         if (other.gameObject.CompareTag("Ball"))
         {
             // Disable the ball
-            ball.disableBall();
+            ball.setBallStatus(false, true);
 
             // Play a particle effect
             ParticleManager.playParticleEffect(ballDestroyedParticleEffect, transform.position, Quaternion.identity, 5.0f);

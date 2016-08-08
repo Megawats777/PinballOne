@@ -18,16 +18,35 @@ public class PaddleController : MonoBehaviour
     [SerializeField]
     private float locationBlendTime = 1.0f;
 
+    // Can the player use the paddle
+    private bool canPlayerUsePaddle = false;
+
     // Reference to the paddle nav point
     [SerializeField]
     private PaddleNavPoint paddleNavPoint;
 
+    // The paddle's rigidbody
     private Rigidbody paddleRigidBody;
+
+    /*-External References-*/
+    GameManager gameManager;
+    MainHUDManager mainHUDManager;
+    Ball ballRef;
 
     // Called before start
     public void Awake()
     {
+        // Get the paddle's rigidbody
         paddleRigidBody = GetComponent<Rigidbody>();
+
+        // Get the Ball
+        ballRef = FindObjectOfType<Ball>();
+
+        // Get the GameManager
+        gameManager = FindObjectOfType<GameManager>();
+
+        // Get the MainHUDManager
+        mainHUDManager = FindObjectOfType<MainHUDManager>();
     }
 
     // Use this for initialization
@@ -36,6 +55,7 @@ public class PaddleController : MonoBehaviour
         // Set the default location of the paddle
         defaultLocation = transform.position;
 
+        // Set the destination location as the default location
         destinationLocation = defaultLocation;
 
         // Get the nav point location
@@ -62,15 +82,29 @@ public class PaddleController : MonoBehaviour
     private void controlPaddleMovement()
     {
         // If the space button is pressed set the destination location to the nav point location
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && canPlayerUsePaddle == true)
         {
             destinationLocation = navPointLocation;
         }
 
         // If the space button was let go set the destination location to the default location
-        else if (Input.GetKeyUp(KeyCode.Space))
+        else if (Input.GetKeyUp(KeyCode.Space) && canPlayerUsePaddle == true)
         {
             destinationLocation = defaultLocation;
+        }
+
+        // If the space bar was pressed and the player cannot use the paddle
+        if (Input.GetKeyDown(KeyCode.Space) && canPlayerUsePaddle == false)
+        {
+            // Show the main game HUD
+            mainHUDManager.setHUDGroupVisibility(mainHUDManager.introHUDGroup, false);
+            mainHUDManager.setHUDGroupVisibility(mainHUDManager.mainHUDGroup, true);
+
+            // Enable the ball
+            ballRef.setBallStatus(true, false);
+
+            // Allow the player to use the paddle
+            canPlayerUsePaddle = true;
         }
     }
 

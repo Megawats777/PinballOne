@@ -29,6 +29,9 @@ public class Ball : MonoBehaviour
     {
         // Set the starting position of the ball
         startingPosition = transform.position;
+
+        // Disable the ball
+        setBallStatus(true, true);
     }
 
     // Update is called once per frame
@@ -38,13 +41,13 @@ public class Ball : MonoBehaviour
     }
 
     // Disable the ball
-    public void disableBall()
+    public void setBallStatus(bool meshVisibility, bool kinematicStatus)
     {
         // Set the ball to be kinematic
-        ballRigidbody.isKinematic = true;
+        ballRigidbody.isKinematic = kinematicStatus;
 
         // Disable the ball's mesh renderer
-        ballMeshRenderer.enabled = false;
+        ballMeshRenderer.enabled = meshVisibility;
     }
 
     // Reposition the ball

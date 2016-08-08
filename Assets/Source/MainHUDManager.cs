@@ -6,6 +6,10 @@ public class MainHUDManager : MonoBehaviour
 {
     /*--Properties of the class--*/
 
+    // Intro HUD objects
+    [Header("Intro HUD Objects"), SerializeField]
+    private Text startText;
+
     // Main game HUD objects
     [Header("Main Game HUD Objects"), SerializeField]
     private Text mainScoreText;
@@ -19,6 +23,9 @@ public class MainHUDManager : MonoBehaviour
     // Game over screen HUD objects
 
     // HUD groups
+    [Header("HUD Groups")]
+    public GameObject introHUDGroup;
+    public GameObject mainHUDGroup;
 
     // Use this for initialization
     void Start()
@@ -32,6 +39,12 @@ public class MainHUDManager : MonoBehaviour
     void Update()
     {
 
+    }
+
+    // Set the visibility of HUD groups
+    public void setHUDGroupVisibility(GameObject group, bool status)
+    {
+        group.SetActive(status);
     }
 
     /*--Main Game HUD Functions--*/
