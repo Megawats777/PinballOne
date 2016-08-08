@@ -19,7 +19,7 @@ public class PaddleController : MonoBehaviour
     private float locationBlendTime = 1.0f;
 
     // Can the player use the paddle
-    private bool canPlayerUsePaddle = false;
+    public bool canPlayerUsePaddle = false;
 
     // Reference to the paddle nav point
     [SerializeField]
@@ -93,15 +93,15 @@ public class PaddleController : MonoBehaviour
             destinationLocation = defaultLocation;
         }
 
-        // If the space bar was pressed and the player cannot use the paddle
-        if (Input.GetKeyDown(KeyCode.Space) && canPlayerUsePaddle == false)
+        // If the space bar was pressed, the game is not over and the player cannot use the paddle
+        if (Input.GetKeyDown(KeyCode.Space) && gameManager.isGameOver == false && canPlayerUsePaddle == false)
         {
             // Show the main game HUD
             mainHUDManager.setHUDGroupVisibility(mainHUDManager.introHUDGroup, false);
             mainHUDManager.setHUDGroupVisibility(mainHUDManager.mainHUDGroup, true);
 
             // Enable the ball
-            ballRef.setBallStatus(true, false);
+            ballRef.setBallStatus(true, false, true);
 
             // Allow the player to use the paddle
             canPlayerUsePaddle = true;

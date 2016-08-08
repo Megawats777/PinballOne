@@ -21,15 +21,21 @@ public class MainHUDManager : MonoBehaviour
 
 
     // Game over screen HUD objects
+    [Header("Game Over HUD Objects"), SerializeField]
+    private Text gameOverScoreText;
 
     // HUD groups
     [Header("HUD Groups")]
     public GameObject introHUDGroup;
     public GameObject mainHUDGroup;
+    public GameObject gameOverHUDGroup;
 
     // Use this for initialization
     void Start()
     {
+        // Set intro group to be visible first
+        setHUDGroupVisibility(introHUDGroup, true);
+
         // Set the main score and ball count text content to 0
         setMainScoreTextContent("0");
         setBallCountContent("3");
@@ -65,4 +71,10 @@ public class MainHUDManager : MonoBehaviour
 
 
     /*--Game Over Screen HUD Functions--*/
+    
+    // Set the content of the game over screen text object
+    public void setGameOverScoreText(string content)
+    {
+        gameOverScoreText.text = content;
+    }
 }

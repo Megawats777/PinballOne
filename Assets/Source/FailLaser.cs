@@ -26,7 +26,7 @@ public class FailLaser : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -42,7 +42,7 @@ public class FailLaser : MonoBehaviour
         if (other.gameObject.CompareTag("Ball"))
         {
             // Disable the ball
-            ball.setBallStatus(false, true);
+            ball.setBallStatus(false, true, false);
 
             // Play a particle effect
             ParticleManager.playParticleEffect(ballDestroyedParticleEffect, transform.position, Quaternion.identity, 5.0f);
@@ -50,8 +50,12 @@ public class FailLaser : MonoBehaviour
             // Reduce the player's ball count
             gameManager.setPlayerBallCount(gameManager.getPlayerBallCount() - 1);
 
-            // After a few seconds reset the ball's position to it's starting position
-            StartCoroutine(ball.reEnableBall());
+            // If the game is not over
+            if (gameManager.isGameOver == false)
+            {
+                // After a few seconds reset the ball's position to it's starting position
+                StartCoroutine(ball.reEnableBall());
+            }
         }
     }
 

@@ -31,23 +31,26 @@ public class Ball : MonoBehaviour
         startingPosition = transform.position;
 
         // Disable the ball
-        setBallStatus(true, true);
+        setBallStatus(true, true, false);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
-    // Disable the ball
-    public void setBallStatus(bool meshVisibility, bool kinematicStatus)
+    // Set the ball status
+    public void setBallStatus(bool meshVisibility, bool kinematicStatus, bool gravityStatus)
     {
         // Set the ball to be kinematic
         ballRigidbody.isKinematic = kinematicStatus;
 
         // Disable the ball's mesh renderer
         ballMeshRenderer.enabled = meshVisibility;
+
+        // Set if the ball uses gravity
+        ballRigidbody.useGravity = gravityStatus;
     }
 
     // Reposition the ball
@@ -60,6 +63,7 @@ public class Ball : MonoBehaviour
 
         yield return new WaitForSeconds(1.05f);
 
+        ballRigidbody.useGravity = true;
         ballRigidbody.isKinematic = false;
         ballMeshRenderer.enabled = true;
     }
