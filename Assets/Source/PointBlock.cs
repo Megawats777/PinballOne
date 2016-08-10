@@ -4,7 +4,7 @@ using System.Collections;
 public class PointBlock : MonoBehaviour
 {
     /*--Properties of the class--*/
-
+   
     // The point value of the block
     [SerializeField]
     private int pointValue = 10;
@@ -33,6 +33,9 @@ public class PointBlock : MonoBehaviour
     // The particle effect to play
     [SerializeField]
     private GameObject collisionParticleEffect;
+
+    // Can the block move
+    private bool canMove = true;
 
     // Reference to the mesh render
     private Renderer objectMeshRenderer;
@@ -111,23 +114,49 @@ public class PointBlock : MonoBehaviour
     // Set the destination for the nav block 
     private void setDestination()
     {
-        // If the destination is the nav point set the destination as the default location
-        if (destinationLocation == navPointLocation)
+        // If the game is not paused set the destination for the block
+        if (gameManager.isGamePaused == false)
         {
-            destinationLocation = defaultLocation;
-        }
+            // If the destination is the nav point set the destination as the default location
+            if (destinationLocation == navPointLocation)
+            {
+                destinationLocation = defaultLocation;
+            }
 
-        // If the destination is the default location set the destination as the nav point
-        else if (destinationLocation == defaultLocation)
-        {
-            destinationLocation = navPointLocation;
+            // If the destination is the default location set the destination as the nav point
+            else if (destinationLocation == defaultLocation)
+            {
+                destinationLocation = navPointLocation;
+            }
         }
     }
 
     // Move the object to the its destination
     private void moveObject()
     {
-        blockRigidbody.MovePosition(Vector3.Lerp(transform.position, destinationLocation, Time.deltaTime * movementSpeed));
+        // If the block can move
+        if (canMove == true)
+        {
+            blockRigidbody.MovePosition(Vector3.Lerp(transform.position, destinationLocation, Time.deltaTime * movementSpeed));
+        }
+    }
+
+    // Stop movement
+    public void stopMovement()
+    {
+        // Stop changing destinations
+        CancelInvoke("setDestination");
+
+        canMove = false;
+    }
+
+    // Resume movement
+    public void resumeMovement()
+    {
+        canMove = true;
+
+        // Allow the block to change destinations
+        InvokeRepeating("setDestination", destinationChangeDelay, destinationChangeDelay);
     }
 
     // When the point block overlaps with an object

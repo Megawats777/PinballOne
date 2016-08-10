@@ -11,8 +11,14 @@ public class GameManager : MonoBehaviour
     // The amount of balls the player has left
     private int playerBallCount = 3;
 
+    // Did the game start
+    public bool didGameStart = false;
+
     // Is the game over
     public bool isGameOver = false;
+
+    // Is the game paused
+    public bool isGamePaused = false;
 
     /*-External References-*/
     MainHUDManager mainHUDManager;
@@ -42,6 +48,65 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
+    }
+
+    // Pause game
+    public void pauseGame()
+    {
+        isGamePaused = true;
+
+        // Stop the ball from moving
+        ballRef.setBallStatus(true, true, false);
+
+        // Stop the point blocks from moving
+        foreach (PointBlock pointBlock in FindObjectsOfType<PointBlock>())
+        {
+            pointBlock.stopMovement();
+        }
+
+        // If the intro HUD is open hide it
+        if (mainHUDManager.introHUDGroup.activeSelf == true)
+        {
+            mainHUDManager.setHUDGroupVisibility(mainHUDManager.introHUDGroup, false);
+        }
+
+        // If the main HUD is open hide it
+        if (mainHUDManager.mainHUDGroup.activeSelf == false)
+        {
+            mainHUDManager.setHUDGroupVisibility(mainHUDManager.mainHUDGroup, false);
+        }
+
+        // Show the pause menu
+        mainHUDManager.setHUDGroupVisibility(mainHUDManager.pauseHUDGroup, true);
+    }
+
+    // Resume game
+    public void resumeGame()
+    {
+        isGamePaused = false;
+
+        // Allow the point blocks to move again
+        foreach(PointBlock pointBlock in FindObjectsOfType<PointBlock>())
+        {
+            pointBlock.resumeMovement();
+        }
+
+        // If the game did not start show the intro HUD and do not let the ball move
+        if (didGameStart == false)
+        {
+            ballRef.setBallStatus(true, true, false);
+            mainHUDManager.setHUDGroupVisibility(mainHUDManager.introHUDGroup, true);
+        }
+
+        // If the game did start show the main HUD and let the ball move
+        if (didGameStart == true)
+        {
+            ballRef.setBallStatus(true, false, true);
+            mainHUDManager.setHUDGroupVisibility(mainHUDManager.mainHUDGroup, true);
+        }
+
+        // Hide the pause menu
+        mainHUDManager.setHUDGroupVisibility(mainHUDManager.pauseHUDGroup, false);
     }
 
     // End the game
@@ -87,7 +152,7 @@ public class GameManager : MonoBehaviour
         mainHUDManager.setBallCountContent(playerBallCount.ToString());
 
         // If the ball count is less than 1 end the game
-        if (playerBallCount < 1)
+        if (playerBallCount < 0)
         {
             StartCoroutine(endGame());
         }

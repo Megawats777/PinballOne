@@ -75,27 +75,29 @@ public class PaddleController : MonoBehaviour
     // Physics Update
     public void FixedUpdate()
     {
-       
+        
     }
 
     // Control paddle movement
     private void controlPaddleMovement()
     {
-        // If the space button is pressed set the destination location to the nav point location
-        if (Input.GetKeyDown(KeyCode.Space) && canPlayerUsePaddle == true)
+        // If the space button is pressed, the player can use the paddle, and the game is not paused set the destination location to the nav point location
+        if (Input.GetKeyDown(KeyCode.Space) && canPlayerUsePaddle == true && gameManager.isGamePaused == false)
         {
             destinationLocation = navPointLocation;
         }
 
-        // If the space button was let go set the destination location to the default location
-        else if (Input.GetKeyUp(KeyCode.Space) && canPlayerUsePaddle == true)
+        // If the space button was let go, the player can use the paddle, and the game is not paused set the destination location to the default location
+        else if (Input.GetKeyUp(KeyCode.Space) && canPlayerUsePaddle == true && gameManager.isGamePaused == false)
         {
             destinationLocation = defaultLocation;
         }
 
-        // If the space bar was pressed, the game is not over and the player cannot use the paddle
-        if (Input.GetKeyDown(KeyCode.Space) && gameManager.isGameOver == false && canPlayerUsePaddle == false)
+        // If the space bar was pressed, the game is not over, the game is not paused and the player cannot use the paddle
+        if (Input.GetKeyDown(KeyCode.Space) && gameManager.isGameOver == false && gameManager.isGamePaused == false && canPlayerUsePaddle == false)
         {
+            gameManager.didGameStart = true;
+
             // Show the main game HUD
             mainHUDManager.setHUDGroupVisibility(mainHUDManager.introHUDGroup, false);
             mainHUDManager.setHUDGroupVisibility(mainHUDManager.mainHUDGroup, true);
@@ -112,11 +114,5 @@ public class PaddleController : MonoBehaviour
     private void moveToDefaultLocation()
     {
         paddleRigidBody.MovePosition(Vector3.Lerp(transform.position, destinationLocation, Time.deltaTime * locationBlendTime));
-    }
-
-    // When a object collides with the paddle
-    public void OnCollisionEnter(Collision collision)
-    {
-
     }
 }

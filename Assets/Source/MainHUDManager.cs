@@ -29,12 +29,28 @@ public class MainHUDManager : MonoBehaviour
     public GameObject introHUDGroup;
     public GameObject mainHUDGroup;
     public GameObject gameOverHUDGroup;
+    public GameObject pauseHUDGroup;
+
+    /*-External References-*/
+    GameManager gameManager;
+
+    // Called before start
+    public void Awake()
+    {
+        // Get the GameManager
+        gameManager = FindObjectOfType<GameManager>();
+    }
 
     // Use this for initialization
     void Start()
     {
         // Set intro group to be visible first
         setHUDGroupVisibility(introHUDGroup, true);
+
+        // Hide other pause groups
+        setHUDGroupVisibility(mainHUDGroup, false);
+        setHUDGroupVisibility(gameOverHUDGroup, false);
+        setHUDGroupVisibility(pauseHUDGroup, false);
 
         // Set the main score and ball count text content to 0
         setMainScoreTextContent("0");
@@ -71,7 +87,7 @@ public class MainHUDManager : MonoBehaviour
 
 
     /*--Game Over Screen HUD Functions--*/
-    
+
     // Set the content of the game over screen text object
     public void setGameOverScoreText(string content)
     {
