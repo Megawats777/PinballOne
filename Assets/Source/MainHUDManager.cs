@@ -17,6 +17,9 @@ public class MainHUDManager : MonoBehaviour
     [SerializeField]
     private Text ballCountText;
 
+    [SerializeField]
+    private Text timeText;
+
     // Pause menu HUD objects
 
 
@@ -55,6 +58,9 @@ public class MainHUDManager : MonoBehaviour
         // Set the main score and ball count text content to 0
         setMainScoreTextContent("0");
         setBallCountContent("3");
+
+        // Set the content of the timeText HUD object
+        setTimeTextContent(gameManager.timerMinutes, gameManager.timerSeconds);
     }
 
     // Update is called once per frame
@@ -81,6 +87,22 @@ public class MainHUDManager : MonoBehaviour
     public void setBallCountContent(string content)
     {
         ballCountText.text = content;
+    }
+
+    // Set the content of the timeText HUD object
+    public void setTimeTextContent(int minute, int seconds)
+    {
+        // If the seconds given is greater than 9 then show the seconds whole number
+        if (seconds > 9)
+        {
+            timeText.text = minute.ToString() + ":" + seconds.ToString();
+        }
+
+        // If the seconds given is less than 10 then add a "0" character before showing the seconds number
+        if (seconds < 10)
+        {
+            timeText.text = seconds.ToString() + ":0" + seconds.ToString();
+        }
     }
 
     /*--Pause Menu HUD Functions--*/

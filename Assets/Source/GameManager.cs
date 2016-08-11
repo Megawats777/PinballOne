@@ -20,6 +20,13 @@ public class GameManager : MonoBehaviour
     // Is the game paused
     public bool isGamePaused = false;
 
+    /*-Timer Properties-*/
+    [Header("Timer Properties"), SerializeField]
+    public int timerMinutes;
+
+    [SerializeField]
+    public int timerSeconds;
+
     /*-External References-*/
     MainHUDManager mainHUDManager;
     PaddleController paddleController;
@@ -48,6 +55,45 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
+    }
+
+    // Start the game timer
+    public void startGameTimer()
+    {
+        InvokeRepeating("runGameTimer", 0.0f, 1.0f);
+    }
+
+    // Run the game timer
+    private void runGameTimer()
+    {
+        // If the number of seconds is greater than 0 then decrement the amount of seconds
+        if (timerSeconds > 0)
+        {
+            timerSeconds--;
+            Debug.Log(timerSeconds);
+            // Update the HUD
+            mainHUDManager.setTimeTextContent(timerMinutes, timerSeconds);
+        }
+
+        // If the number of seconds is 0 then decrement the amount of minutes and set the amount of seconds to 59
+        if (timerSeconds == 0 && timerMinutes > 0)
+        {
+            timerMinutes--;
+            timerSeconds = 59;
+
+            // Update the HUD
+            mainHUDManager.setTimeTextContent(timerMinutes, timerSeconds);
+        }
+
+        // If the number of seconds and minutes is 0 then end the game
+        if (timerMinutes == 0 && timerSeconds == 0)
+        {
+            // Update the HUD
+            mainHUDManager.setTimeTextContent(timerMinutes, timerSeconds);
+
+            // After half a second end the game
+            Invoke("endGame", 0.5f);
+        }
     }
 
     // Pause game
@@ -101,7 +147,6 @@ public class GameManager : MonoBehaviour
 
         // Hide the pause menu
         mainHUDManager.setHUDGroupVisibility(mainHUDManager.pauseHUDGroup, false);
-        
     }
 
     // End the game

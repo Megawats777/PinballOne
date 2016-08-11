@@ -39,8 +39,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59180576f4b79f1409be24308419656f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  didGameStart: 0
   isGameOver: 0
   isGamePaused: 0
+  timerMinutes: 1
+  timerSeconds: 30
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

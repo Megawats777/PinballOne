@@ -96,7 +96,7 @@ public class PaddleController : MonoBehaviour
             destinationLocation = defaultLocation;
         }
 
-        // If the UsePaddle button was pressed, the game is not over, the game is not paused and the player cannot use the paddle
+        // If the UsePaddle button was pressed, the game is not over, the game is not paused and the player cannot use the paddle then start the game
         if (Input.GetButtonDown("UsePaddle") && gameManager.isGameOver == false && gameManager.isGamePaused == false && canPlayerUsePaddle == false)
         {
             gameManager.didGameStart = true;
@@ -110,6 +110,9 @@ public class PaddleController : MonoBehaviour
 
             // Allow the player to use the paddle
             canPlayerUsePaddle = true;
+
+            // Start the game timer
+            gameManager.startGameTimer();
         }
     }
 
