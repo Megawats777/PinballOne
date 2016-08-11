@@ -55,15 +55,9 @@ public class GameManager : MonoBehaviour
     {
         isGamePaused = true;
 
-        // Stop the ball from moving
-        ballRef.setBallStatus(true, true, false);
-
-        // Stop the point blocks from moving
-        foreach (PointBlock pointBlock in FindObjectsOfType<PointBlock>())
-        {
-            pointBlock.stopMovement();
-        }
-
+        // Set the time scale to 0
+        Time.timeScale = 0;
+        
         // If the intro HUD is open hide it
         if (mainHUDManager.introHUDGroup.activeSelf == true)
         {
@@ -78,6 +72,7 @@ public class GameManager : MonoBehaviour
 
         // Show the pause menu
         mainHUDManager.setHUDGroupVisibility(mainHUDManager.pauseHUDGroup, true);
+        
     }
 
     // Resume game
@@ -85,11 +80,8 @@ public class GameManager : MonoBehaviour
     {
         isGamePaused = false;
 
-        // Allow the point blocks to move again
-        foreach(PointBlock pointBlock in FindObjectsOfType<PointBlock>())
-        {
-            pointBlock.resumeMovement();
-        }
+        // Set the time scale to 1
+        Time.timeScale = 1;
 
         // If the game did not start show the intro HUD and do not let the ball move
         if (didGameStart == false)
@@ -98,15 +90,18 @@ public class GameManager : MonoBehaviour
             mainHUDManager.setHUDGroupVisibility(mainHUDManager.introHUDGroup, true);
         }
 
-        // If the game did start show the main HUD and let the ball move
+        // If the game did start show the main HUD
         if (didGameStart == true)
         {
-            ballRef.setBallStatus(true, false, true);
             mainHUDManager.setHUDGroupVisibility(mainHUDManager.mainHUDGroup, true);
         }
 
+        // Set the paddle's destination location to default location
+        paddleController.destinationLocation = paddleController.defaultLocation;
+
         // Hide the pause menu
         mainHUDManager.setHUDGroupVisibility(mainHUDManager.pauseHUDGroup, false);
+        
     }
 
     // End the game

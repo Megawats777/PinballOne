@@ -6,13 +6,16 @@ public class PaddleController : MonoBehaviour
     /*--Properties of the class--*/
 
     // The default location of the paddle
-    private Vector3 defaultLocation;
+    [HideInInspector]
+    public Vector3 defaultLocation;
 
     // The location of the paddle nav point
-    private Vector3 navPointLocation;
+    [HideInInspector]
+    public Vector3 navPointLocation;
 
     // The destination location for the paddle
-    private Vector3 destinationLocation;
+    [HideInInspector]
+    public Vector3 destinationLocation;
 
     // The time to blend to the default paddle location
     [SerializeField]
@@ -81,20 +84,20 @@ public class PaddleController : MonoBehaviour
     // Control paddle movement
     private void controlPaddleMovement()
     {
-        // If the space button is pressed, the player can use the paddle, and the game is not paused set the destination location to the nav point location
-        if (Input.GetKeyDown(KeyCode.Space) && canPlayerUsePaddle == true && gameManager.isGamePaused == false)
+        // If the UsePaddle button is pressed, the player can use the paddle, and the game is not paused set the destination location to the nav point location
+        if (Input.GetButtonDown("UsePaddle") && canPlayerUsePaddle == true && gameManager.isGamePaused == false)
         {
             destinationLocation = navPointLocation;
         }
 
-        // If the space button was let go, the player can use the paddle, and the game is not paused set the destination location to the default location
-        else if (Input.GetKeyUp(KeyCode.Space) && canPlayerUsePaddle == true && gameManager.isGamePaused == false)
+        // If the UsePaddle button was let go, the player can use the paddle, and the game is not paused set the destination location to the default location
+        else if (Input.GetButtonUp("UsePaddle") && canPlayerUsePaddle == true && gameManager.isGamePaused == false)
         {
             destinationLocation = defaultLocation;
         }
 
-        // If the space bar was pressed, the game is not over, the game is not paused and the player cannot use the paddle
-        if (Input.GetKeyDown(KeyCode.Space) && gameManager.isGameOver == false && gameManager.isGamePaused == false && canPlayerUsePaddle == false)
+        // If the UsePaddle button was pressed, the game is not over, the game is not paused and the player cannot use the paddle
+        if (Input.GetButtonDown("UsePaddle") && gameManager.isGameOver == false && gameManager.isGamePaused == false && canPlayerUsePaddle == false)
         {
             gameManager.didGameStart = true;
 

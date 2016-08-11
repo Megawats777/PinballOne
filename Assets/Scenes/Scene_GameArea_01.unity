@@ -290,7 +290,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 416928, guid: 081cae17b6e19ee48bfdff25c389a0d7, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.28
+      value: 5.6
       objectReference: {fileID: 0}
     - target: {fileID: 416928, guid: 081cae17b6e19ee48bfdff25c389a0d7, type: 2}
       propertyPath: m_LocalPosition.z
@@ -506,7 +506,7 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11432196, guid: 3ad01effac3952244a7a2745e5cfbbba, type: 2}
+    - target: {fileID: 11404958, guid: 3ad01effac3952244a7a2745e5cfbbba, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1010066148}
@@ -514,7 +514,7 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1010066148}
-    - target: {fileID: 11404958, guid: 3ad01effac3952244a7a2745e5cfbbba, type: 2}
+    - target: {fileID: 11432196, guid: 3ad01effac3952244a7a2745e5cfbbba, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1010066148}
@@ -1129,7 +1129,7 @@ ReflectionProbe:
   m_IntensityMultiplier: 1
   m_BlendDistance: 1
   m_HDR: 1
-  m_BoxProjection: 0
+  m_BoxProjection: 1
   m_RenderDynamicObjects: 0
   m_UseOcclusionCulling: 1
   m_CustomBakedTexture: {fileID: 0}
@@ -1274,7 +1274,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 413610, guid: 2c7ac184885005b4b8336b202d96c1fa, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2c7ac184885005b4b8336b202d96c1fa, type: 2}
