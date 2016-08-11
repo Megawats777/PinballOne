@@ -101,7 +101,7 @@ public class MainHUDManager : MonoBehaviour
         // If the seconds given is less than 10 then add a "0" character before showing the seconds number
         if (seconds < 10)
         {
-            timeText.text = seconds.ToString() + ":0" + seconds.ToString();
+            timeText.text = minute.ToString() + ":0" + seconds.ToString();
         }
     }
 

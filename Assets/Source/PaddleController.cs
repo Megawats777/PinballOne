@@ -106,7 +106,7 @@ public class PaddleController : MonoBehaviour
             mainHUDManager.setHUDGroupVisibility(mainHUDManager.mainHUDGroup, true);
 
             // Enable the ball
-            ballRef.setBallStatus(true, false, true);
+            ballRef.setBallStatus(true, false, true, true);
 
             // Allow the player to use the paddle
             canPlayerUsePaddle = true;

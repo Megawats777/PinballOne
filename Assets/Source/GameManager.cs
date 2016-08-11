@@ -60,7 +60,13 @@ public class GameManager : MonoBehaviour
     // Start the game timer
     public void startGameTimer()
     {
-        InvokeRepeating("runGameTimer", 0.0f, 1.0f);
+        InvokeRepeating("runGameTimer", 1.0f, 1.0f);
+    }
+
+    // Stop the game timer
+    public void stopGameTimer()
+    {
+        CancelInvoke("runGameTimer");
     }
 
     // Run the game timer
@@ -70,7 +76,7 @@ public class GameManager : MonoBehaviour
         if (timerSeconds > 0)
         {
             timerSeconds--;
-            Debug.Log(timerSeconds);
+            
             // Update the HUD
             mainHUDManager.setTimeTextContent(timerMinutes, timerSeconds);
         }
@@ -89,10 +95,13 @@ public class GameManager : MonoBehaviour
         if (timerMinutes == 0 && timerSeconds == 0)
         {
             // Update the HUD
-            mainHUDManager.setTimeTextContent(timerMinutes, timerSeconds);
+            mainHUDManager.setTimeTextContent(0, timerSeconds);
 
-            // After half a second end the game
-            Invoke("endGame", 0.5f);
+            // Stop the timer
+            stopGameTimer();
+
+            // End the game
+            StartCoroutine(endGame());
         }
     }
 
@@ -132,7 +141,7 @@ public class GameManager : MonoBehaviour
         // If the game did not start show the intro HUD and do not let the ball move
         if (didGameStart == false)
         {
-            ballRef.setBallStatus(true, true, false);
+            ballRef.setBallStatus(true, true, false, true);
             mainHUDManager.setHUDGroupVisibility(mainHUDManager.introHUDGroup, true);
         }
 
@@ -159,13 +168,13 @@ public class GameManager : MonoBehaviour
         paddleController.canPlayerUsePaddle = false;
 
         // Disable the ball
-        ballRef.setBallStatus(false, true, false);
-
-        // Hide the main game HUD
-        mainHUDManager.setHUDGroupVisibility(mainHUDManager.mainHUDGroup, false);
+        ballRef.setBallStatus(false, true, false, false);
 
         // Have a delay
         yield return new WaitForSeconds(1.5f);
+
+        // Hide the main game HUD
+        mainHUDManager.setHUDGroupVisibility(mainHUDManager.mainHUDGroup, false);
 
         // Show the game over screen
         mainHUDManager.setGameOverScoreText(playerScore.ToString());
@@ -194,6 +203,10 @@ public class GameManager : MonoBehaviour
         // If the ball count is less than 1 end the game
         if (playerBallCount < 0)
         {
+            // Stop the timer
+            stopGameTimer();
+
+            // End the game
             StartCoroutine(endGame());
         }
     }

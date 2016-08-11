@@ -14,6 +14,9 @@ public class Ball : MonoBehaviour
     // Reference to the mesh renderer of the ball
     private MeshRenderer ballMeshRenderer;
 
+    // Reference to the sphere collider of the ball
+    private SphereCollider ballCollider;
+
     // Called before start
     public void Awake()
     {
@@ -22,6 +25,9 @@ public class Ball : MonoBehaviour
 
         // Get the ball's mesh renderer
         ballMeshRenderer = GetComponent<MeshRenderer>();
+
+        // Get the ball's collider
+        ballCollider = GetComponent<SphereCollider>();
     }
 
     // Use this for initialization
@@ -31,23 +37,26 @@ public class Ball : MonoBehaviour
         startingPosition = transform.position;
 
         // Disable the ball
-        setBallStatus(true, true, false);
+        setBallStatus(true, true, false, true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     // Set the ball status
-    public void setBallStatus(bool meshVisibility, bool kinematicStatus, bool gravityStatus)
+    public void setBallStatus(bool meshVisibility, bool kinematicStatus, bool gravityStatus, bool colliderStatus)
     {
         // Set the ball to be kinematic
         ballRigidbody.isKinematic = kinematicStatus;
 
-        // Disable the ball's mesh renderer
+        // Disable or enable the ball's mesh renderer
         ballMeshRenderer.enabled = meshVisibility;
+
+        // Set if the collider is active or inactive
+        ballCollider.enabled = colliderStatus;
 
         // Set if the ball uses gravity
         ballRigidbody.useGravity = gravityStatus;
@@ -63,6 +72,7 @@ public class Ball : MonoBehaviour
 
         yield return new WaitForSeconds(1.05f);
 
+        ballCollider.enabled = true;
         ballRigidbody.useGravity = true;
         ballRigidbody.isKinematic = false;
         ballMeshRenderer.enabled = true;
