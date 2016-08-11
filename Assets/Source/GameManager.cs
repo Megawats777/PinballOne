@@ -27,6 +27,16 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public int timerSeconds;
 
+    /*-Combo Properties-*/
+    [Header("Combo Properties"), SerializeField]
+    private float comboHUDHideDelay = 2.0f;
+
+    // The size of the combo 
+    private int comboSize = 0;
+
+    // The bonus of the combo
+    private int comboBonus = 0;
+
     /*-External References-*/
     MainHUDManager mainHUDManager;
     PaddleController paddleController;
@@ -181,6 +191,39 @@ public class GameManager : MonoBehaviour
         mainHUDManager.setHUDGroupVisibility(mainHUDManager.gameOverHUDGroup, true);
     }
 
+    // End the current combo
+    public IEnumerator endCurrentCombo()
+    {
+        // If the combo size is greater than 1
+        if (comboSize > 1)
+        {
+            // Calculate the combo bonus
+            calculateComboBonus();
+
+            // Display the combo results
+            mainHUDManager.setComboTextHUDContent(comboSize, comboBonus, true);
+
+            // Add the bonus to the score
+            setPlayerScore(playerScore + comboBonus);
+
+            // Set the combo size and combo bonus to 0
+            comboSize = 0;
+            comboBonus = 0;
+
+            // Have a delay
+            yield return new WaitForSeconds(comboHUDHideDelay);
+           
+            // Hide the combo results HUD
+            mainHUDManager.setComboTextHUDContent(0, 0, false);
+        }
+    }
+
+    // Calculate the combo bonus
+    public void calculateComboBonus()
+    {
+        comboBonus = comboSize * 10;
+    }
+
     /*--Set properties of the class--*/
 
     // Set the player score
@@ -211,6 +254,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Set the size of the combo
+    public void setComboSize(int size)
+    {
+        comboSize = size;
+    }
+
+    // Set the bonus of the combo
+    public void setComboBonus(int num)
+    {
+        comboBonus = num;
+    }
+
     /*--Get properties of the class--*/
 
     // Get the player score
@@ -224,4 +279,17 @@ public class GameManager : MonoBehaviour
     {
         return playerBallCount;
     }
+
+    // Get the combo size
+    public int getComboSize()
+    {
+        return comboSize;
+    }
+
+    // Get the combo bonus
+    public int getComboBonus()
+    {
+        return comboBonus;
+    }
+
 }

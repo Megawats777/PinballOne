@@ -168,6 +168,9 @@ public class PointBlock : MonoBehaviour
             // Add points
             gameManager.setPlayerScore(gameManager.getPlayerScore() + pointValue);
 
+            // Add to the combo size
+            gameManager.setComboSize(gameManager.getComboSize() + 1);
+
             // Play a sound effect
 
             // Play a particle effect

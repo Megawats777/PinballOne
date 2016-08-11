@@ -78,7 +78,7 @@ public class PaddleController : MonoBehaviour
     // Physics Update
     public void FixedUpdate()
     {
-        
+
     }
 
     // Control paddle movement
@@ -120,5 +120,16 @@ public class PaddleController : MonoBehaviour
     private void moveToDefaultLocation()
     {
         paddleRigidBody.MovePosition(Vector3.Lerp(transform.position, destinationLocation, Time.deltaTime * locationBlendTime));
+    }
+
+    // When an object collides with the paddle
+    public void OnCollisionEnter(Collision collision)
+    {
+        // If the colliding object is the ball
+        if (collision.gameObject.CompareTag("Ball"))
+        {
+            // End the current combo
+            StartCoroutine(gameManager.endCurrentCombo());
+        }
     }
 }

@@ -20,6 +20,12 @@ public class MainHUDManager : MonoBehaviour
     [SerializeField]
     private Text timeText;
 
+    [SerializeField]
+    private Text comboTitleText;
+
+    [SerializeField]
+    private Text comboBonusText;
+
     // Pause menu HUD objects
 
 
@@ -58,6 +64,9 @@ public class MainHUDManager : MonoBehaviour
         // Set the main score and ball count text content to 0
         setMainScoreTextContent("0");
         setBallCountContent("3");
+
+        // Hide the combo text HUD objects
+        setComboTextHUDContent(0, 0, false);
 
         // Set the content of the timeText HUD object
         setTimeTextContent(gameManager.timerMinutes, gameManager.timerSeconds);
@@ -102,6 +111,27 @@ public class MainHUDManager : MonoBehaviour
         if (seconds < 10)
         {
             timeText.text = minute.ToString() + ":0" + seconds.ToString();
+        }
+    }
+
+    // Set the content of combo Text HUD objects
+    public void setComboTextHUDContent(int comboSize, int comboBonus, bool visibilityStatus)
+    {
+        // If the HUD objects can be visible
+        if (visibilityStatus == true)
+        {
+            // Set the content of the combo title object
+            comboTitleText.text = comboSize.ToString() + "-Chain Combo";
+
+            // Set the content of the combo bonus object
+            comboBonusText.text = "+" + comboBonus.ToString();
+        }
+        
+        // If the HUD objects cannot be visible then set the content to null
+        if (visibilityStatus == false)
+        {
+            comboBonusText.text = "";
+            comboTitleText.text = "";
         }
     }
 
