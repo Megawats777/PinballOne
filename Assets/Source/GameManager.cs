@@ -191,6 +191,13 @@ public class GameManager : MonoBehaviour
         mainHUDManager.setHUDGroupVisibility(mainHUDManager.gameOverHUDGroup, true);
     }
 
+    // Reset current combo
+    public void resetCurrentCombo()
+    {
+        comboSize = 0;
+        comboBonus = 0;
+    }
+
     // End the current combo
     public IEnumerator endCurrentCombo()
     {
@@ -206,9 +213,8 @@ public class GameManager : MonoBehaviour
             // Add the bonus to the score
             setPlayerScore(playerScore + comboBonus);
 
-            // Set the combo size and combo bonus to 0
-            comboSize = 0;
-            comboBonus = 0;
+            // Reset current combo
+            resetCurrentCombo();
 
             // Have a delay
             yield return new WaitForSeconds(comboHUDHideDelay);

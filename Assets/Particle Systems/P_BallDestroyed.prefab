@@ -11,7 +11,7 @@ GameObject:
   - 198: {fileID: 19834936}
   - 199: {fileID: 19987320}
   m_Layer: 0
-  m_Name: BallDestroyedParticle
+  m_Name: P_BallDestroyed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

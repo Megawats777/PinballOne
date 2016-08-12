@@ -41,6 +41,9 @@ public class FailLaser : MonoBehaviour
         // If the laser is overlaped by the ball
         if (other.gameObject.CompareTag("Ball"))
         {
+            // Reset the current combo
+            gameManager.resetCurrentCombo();
+
             // Disable the ball
             ball.setBallStatus(false, true, false, false);
 
