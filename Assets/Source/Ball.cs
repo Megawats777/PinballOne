@@ -17,6 +17,9 @@ public class Ball : MonoBehaviour
     // Reference to the sphere collider of the ball
     private SphereCollider ballCollider;
 
+    // The ball's destructiontion particle system
+    public GameObject destructionParticle;
+
     // Called before start
     public void Awake()
     {

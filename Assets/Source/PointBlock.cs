@@ -174,7 +174,7 @@ public class PointBlock : MonoBehaviour
             // Play a sound effect
 
             // Play a particle effect
-            ParticleManager.playParticleEffect(collisionParticleEffect, transform.position, Quaternion.identity, 5.0f);
+            ParticleManager.playParticleEffect(collisionParticleEffect, transform.position, Quaternion.identity);
 
             // Disable the object
             disableObject();

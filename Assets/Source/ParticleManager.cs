@@ -17,12 +17,12 @@ public class ParticleManager : MonoBehaviour
     }
 
     // Play a particle effect
-    public static void playParticleEffect(GameObject particleSystem, Vector3 spawnLocation, Quaternion spawnRotation, float destoyDelay)
+    public static void playParticleEffect(GameObject particleSystem, Vector3 spawnLocation, Quaternion spawnRotation)
     {
         if (particleSystem)
         {
             GameObject particleObject = (GameObject) Instantiate(particleSystem, spawnLocation, spawnRotation);
-            Destroy(particleObject, destoyDelay);
+            Destroy(particleObject, 20.0f);
         }
     }
 }

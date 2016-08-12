@@ -48,7 +48,7 @@ public class FailLaser : MonoBehaviour
             ball.setBallStatus(false, true, false, false);
 
             // Play a particle effect
-            ParticleManager.playParticleEffect(ballDestroyedParticleEffect, transform.position, Quaternion.identity, 5.0f);
+            ParticleManager.playParticleEffect(ballDestroyedParticleEffect, transform.position, Quaternion.identity);
 
             // Reduce the player's ball count
             gameManager.setPlayerBallCount(gameManager.getPlayerBallCount() - 1);

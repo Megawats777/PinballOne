@@ -110,6 +110,9 @@ public class GameManager : MonoBehaviour
             // Stop the timer
             stopGameTimer();
 
+            // Spawn a particle system at the ball's location
+            ParticleManager.playParticleEffect(ballRef.destructionParticle, ballRef.transform.position, ballRef.transform.rotation);
+
             // End the game
             StartCoroutine(endGame());
         }
