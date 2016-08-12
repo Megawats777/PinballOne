@@ -20,6 +20,7 @@ public class ButtonActions : MonoBehaviour
     // Open a level
     public void openLevel(string levelName)
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadSceneAsync(levelName);
     }
 
