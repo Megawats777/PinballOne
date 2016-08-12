@@ -181,6 +181,7 @@ public class GameManager : MonoBehaviour
         paddleController.canPlayerUsePaddle = false;
 
         // Disable the ball
+        ballRef.gameObject.SetActive(false);
         ballRef.setBallStatus(false, true, false, false);
 
         // Have a delay

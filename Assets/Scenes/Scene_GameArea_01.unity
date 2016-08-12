@@ -408,6 +408,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 17
       objectReference: {fileID: 0}
+    - target: {fileID: 11427460, guid: 3718962dc90380a4981f75225e35a05c, type: 2}
+      propertyPath: timerMinutes
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11427460, guid: 3718962dc90380a4981f75225e35a05c, type: 2}
+      propertyPath: timerSeconds
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3718962dc90380a4981f75225e35a05c, type: 2}
   m_IsPrefabParent: 0

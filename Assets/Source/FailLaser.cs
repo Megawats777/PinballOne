@@ -32,7 +32,7 @@ public class FailLaser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     // When the laser is overlaped by an object
