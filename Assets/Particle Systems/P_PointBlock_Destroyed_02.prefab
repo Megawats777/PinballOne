@@ -11,7 +11,7 @@ GameObject:
   - 198: {fileID: 19869118}
   - 199: {fileID: 19905276}
   m_Layer: 0
-  m_Name: P_PointBlock_Destroyed_01
+  m_Name: P_PointBlock_Destroyed_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -224,7 +224,7 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 4290838463
+        rgba: 4294831746
       minMaxState: 0
     startSize:
       scalar: 0.89

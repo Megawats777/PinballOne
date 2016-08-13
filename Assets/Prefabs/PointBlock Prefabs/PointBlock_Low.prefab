@@ -30,7 +30,7 @@ GameObject:
   - 54: {fileID: 5400708}
   - 114: {fileID: 11415220}
   m_Layer: 0
-  m_Name: PointBlock
+  m_Name: PointBlock_Low
   m_TagString: PointBlock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 136482}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.13, y: 26.16, z: 0}
+  m_LocalPosition: {x: -8.13, y: 19.13, z: 0}
   m_LocalScale: {x: 5.31726, y: 1, z: 1}
   m_Children:
   - {fileID: 448718}
@@ -56,7 +56,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 116542}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.09, y: 0, z: 0}
+  m_LocalPosition: {x: 3.075, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 413610}
@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b46236c5ee71fe48b407f881d22f406, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointValue: 10
+  pointValue: 20
   movementSpeed: 0.5
   pointBlockNavPoint: {fileID: 116542}
   positionLerpValue: 0
