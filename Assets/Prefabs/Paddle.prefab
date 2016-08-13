@@ -27,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 192844}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.86, z: 0}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
   m_LocalScale: {x: 7.7, y: 0.7, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -103,6 +103,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b4ae4177a7a24c4db59c1486d06d06e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultLocation: {x: 0, y: 0, z: 0}
+  navPointLocation: {x: 0, y: 0, z: 0}
+  destinationLocation: {x: 0, y: 0, z: 0}
   locationBlendTime: 22
   canPlayerUsePaddle: 0
   paddleNavPoint: {fileID: 0}

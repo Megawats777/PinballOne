@@ -5,6 +5,16 @@ using System.Collections;
 public class ButtonActions : MonoBehaviour
 {
 
+    /*-External References-*/
+    GameManager gameManager;
+
+    // Called before start
+    public void Awake()
+    {
+        // Get the GameManager
+        gameManager = FindObjectOfType<GameManager>();
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -15,6 +25,12 @@ public class ButtonActions : MonoBehaviour
     void Update()
     {
 
+    }
+
+    // Pause Function wrapper
+    public void pauseWrapper()
+    {
+        gameManager.pauseGame();
     }
 
     // Open a level
