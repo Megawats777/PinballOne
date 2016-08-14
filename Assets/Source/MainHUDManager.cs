@@ -137,6 +137,11 @@ public class MainHUDManager : MonoBehaviour
 
     /*--Pause Menu HUD Functions--*/
 
+    // Resume game wrapper
+    public void resumeGameWrapper()
+    {
+        gameManager.resumeGame();
+    }
 
     /*--Game Over Screen HUD Functions--*/
 

@@ -138,7 +138,7 @@ MonoBehaviour:
   positionLerpValue: 0
   collisionParticleEffect: {fileID: 100800, guid: cfbd6e40aa9c4f14b839e50ced6da60a,
     type: 2}
-  reEnableTime: 5
+  reEnableTime: 3
   destinationChangeDelay: 8
 --- !u!114 &11470094
 MonoBehaviour:
