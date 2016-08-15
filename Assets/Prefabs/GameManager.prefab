@@ -117,8 +117,9 @@ MonoBehaviour:
   didGameStart: 0
   isGameOver: 0
   isGamePaused: 0
+  targetScore: 100
   timerMinutes: 1
-  timerSeconds: 30
+  timerSeconds: 0
   comboHUDHideDelay: 2.1
 --- !u!1001 &100100000
 Prefab:

@@ -933,12 +933,8 @@ Prefab:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11427460, guid: 3718962dc90380a4981f75225e35a05c, type: 2}
-      propertyPath: timerMinutes
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11427460, guid: 3718962dc90380a4981f75225e35a05c, type: 2}
-      propertyPath: timerSeconds
-      value: 0
+      propertyPath: targetScore
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3718962dc90380a4981f75225e35a05c, type: 2}
@@ -1411,6 +1407,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22403332, guid: 3ad01effac3952244a7a2745e5cfbbba, type: 2}
       propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 160396, guid: 3ad01effac3952244a7a2745e5cfbbba, type: 2}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 158994, guid: 3ad01effac3952244a7a2745e5cfbbba, type: 2}

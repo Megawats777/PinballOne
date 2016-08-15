@@ -26,12 +26,22 @@ public class MainHUDManager : MonoBehaviour
     [SerializeField]
     private Text comboBonusText;
 
-    // Pause menu HUD objects
+    [SerializeField]
+    private Text targetScoreText;
 
+    // Pause menu HUD objects
+    [Header("Pause Menu HUD Objects"), SerializeField]
+    private Text currentScorePauseText;
 
     // Game over screen HUD objects
     [Header("Game Over HUD Objects"), SerializeField]
     private Text gameOverScoreText;
+
+    [SerializeField]
+    private Text gameOverScreenTitle;
+
+    [SerializeField]
+    private Text highestComboText;
 
     // HUD groups
     [Header("HUD Groups")]
@@ -70,6 +80,9 @@ public class MainHUDManager : MonoBehaviour
 
         // Set the content of the timeText HUD object
         setTimeTextContent(gameManager.timerMinutes, gameManager.timerSeconds);
+
+        // Set the content of the target score text object
+        targetScoreText.text = gameManager.getLevelTargetScore().ToString();
     }
 
     // Update is called once per frame
@@ -143,11 +156,29 @@ public class MainHUDManager : MonoBehaviour
         gameManager.resumeGame();
     }
 
+    // Set the content of the current score text object
+    public void setCurrentScorePauseTextContent(string content)
+    {
+        currentScorePauseText.text = content;
+    }
+
     /*--Game Over Screen HUD Functions--*/
+
+    // Set the title for the game over screen
+    public void setGameOverScreenTitle(string content)
+    {
+        gameOverScreenTitle.text = content;
+    }
 
     // Set the content of the game over screen text object
     public void setGameOverScoreText(string content)
     {
         gameOverScoreText.text = content;
+    }
+
+    // Set the content for the highest combo text object
+    public void setHighestComboTextContent(string content)
+    {
+        highestComboText.text = content;
     }
 }

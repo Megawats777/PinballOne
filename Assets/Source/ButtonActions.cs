@@ -7,12 +7,16 @@ public class ButtonActions : MonoBehaviour
 
     /*-External References-*/
     GameManager gameManager;
+    MainHUDManager mainHUDManager;
 
     // Called before start
     public void Awake()
     {
         // Get the GameManager
         gameManager = FindObjectOfType<GameManager>();
+
+        // Get the main HUD manager
+        mainHUDManager = FindObjectOfType<MainHUDManager>();
     }
 
     // Use this for initialization
@@ -31,6 +35,7 @@ public class ButtonActions : MonoBehaviour
     public void pauseWrapper()
     {
         gameManager.pauseGame();
+        mainHUDManager.setHUDGroupVisibility(mainHUDManager.mainHUDGroup, false);
     }
 
     // Open a level

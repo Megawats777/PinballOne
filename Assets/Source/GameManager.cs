@@ -23,6 +23,13 @@ public class GameManager : MonoBehaviour
     // Reference to the gameOverAudioSource
     private AudioSource gameOverAudioSource;
 
+    // The message of the game over screen
+    string gameOverScreenMessage;
+
+    /*-Game Rules Properties-*/
+    [Header("Game Rules Properties"), SerializeField]
+    private int targetScore = 500;
+
     /*-Timer Properties-*/
     [Header("Timer Properties"), SerializeField]
     public int timerMinutes;
@@ -39,6 +46,9 @@ public class GameManager : MonoBehaviour
 
     // The bonus of the combo
     private int comboBonus = 0;
+
+    // The highest combo size
+    private int highestComboSize = 0;
 
     /*-External References-*/
     MainHUDManager mainHUDManager;
@@ -149,6 +159,7 @@ public class GameManager : MonoBehaviour
 
         // Show the pause menu
         mainHUDManager.setHUDGroupVisibility(mainHUDManager.pauseHUDGroup, true);
+        mainHUDManager.setCurrentScorePauseTextContent(playerScore.ToString());
         
     }
 
@@ -180,9 +191,28 @@ public class GameManager : MonoBehaviour
         mainHUDManager.setHUDGroupVisibility(mainHUDManager.pauseHUDGroup, false);
     }
 
+    // Set game over screen message
+    private void setGameOverScreenMessage()
+    {
+        // If the player reached the target score set the message to be you win
+        if (playerScore >= targetScore)
+        {
+            gameOverScreenMessage = "You Win";
+        }
+
+        // If the player did not reach the target score set the message to be you lose
+        if (playerScore < targetScore)
+        {
+            gameOverScreenMessage = "You Lose";
+        }
+    }
+
     // End the game
     public IEnumerator endGame()
     {
+        // Set game over screen message
+        setGameOverScreenMessage();
+
         // Set the game to be over
         isGameOver = true;
 
@@ -201,6 +231,8 @@ public class GameManager : MonoBehaviour
 
         // Show the game over screen
         mainHUDManager.setGameOverScoreText(playerScore.ToString());
+        mainHUDManager.setHighestComboTextContent(highestComboSize.ToString());
+        mainHUDManager.setGameOverScreenTitle(gameOverScreenMessage);
         mainHUDManager.setHUDGroupVisibility(mainHUDManager.gameOverHUDGroup, true);
     }
 
@@ -211,6 +243,17 @@ public class GameManager : MonoBehaviour
         comboBonus = 0;
     }
 
+    // Set the highest combo size
+    private void setHighestComboSize(int size)
+    {
+        // If the size given is bigger than the current biggest combo size
+        if (size > highestComboSize)
+        {
+            // Set the new highest combo size
+            highestComboSize = size;
+        }
+    }
+
     // End the current combo
     public IEnumerator endCurrentCombo()
     {
@@ -219,6 +262,9 @@ public class GameManager : MonoBehaviour
         {
             // Calculate the combo bonus
             calculateComboBonus();
+
+            // Set the highest combo size
+            setHighestComboSize(comboSize);
 
             // Display the combo results
             mainHUDManager.setComboTextHUDContent(comboSize, comboBonus, true);
@@ -311,4 +357,9 @@ public class GameManager : MonoBehaviour
         return comboBonus;
     }
 
+    // Get the target score for the level
+    public int getLevelTargetScore()
+    {
+        return targetScore;
+    }
 }
