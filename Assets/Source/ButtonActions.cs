@@ -37,7 +37,14 @@ public class ButtonActions : MonoBehaviour
     public void openLevel(string levelName)
     {
         Time.timeScale = 1.0f;
-        SceneManager.LoadSceneAsync(levelName);
+        SceneManager.LoadScene(levelName);
+    }
+
+    // Reload the current level
+    public void reloadCurrentLevel()
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     // Quit the application
