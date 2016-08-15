@@ -20,11 +20,18 @@ public class Ball : MonoBehaviour
     // The ball's destructiontion particle system
     public GameObject destructionParticle;
 
+    // The ball's destruction sound source
+    [HideInInspector]
+    public AudioSource destructionSoundSource;
+
     // Called before start
     public void Awake()
     {
         // Get the ball's rigidbody
         ballRigidbody = GetComponent<Rigidbody>();
+
+        // Get the ball's destruction sound source
+        destructionSoundSource = GetComponent<AudioSource>();
 
         // Get the ball's mesh renderer
         ballMeshRenderer = GetComponent<MeshRenderer>();

@@ -34,7 +34,11 @@ public class PointBlock : MonoBehaviour
     [SerializeField]
     private GameObject collisionParticleEffect;
 
-    
+    // Reference to the overlap sound source
+    private AudioSource overlapSoundSource;
+
+    // Was the object overlaped
+    private bool wasOverlaped = false;
 
     // Can the block move
     private bool canMove = true;
@@ -73,6 +77,9 @@ public class PointBlock : MonoBehaviour
 
         // Get the object's rigidbody
         blockRigidbody = GetComponent<Rigidbody>();
+
+        // Get the overlap sound source
+        overlapSoundSource = GetComponent<AudioSource>();
 
         // Get the GameManager
         gameManager = FindObjectOfType<GameManager>();
@@ -161,6 +168,16 @@ public class PointBlock : MonoBehaviour
         InvokeRepeating("setDestination", destinationChangeDelay, destinationChangeDelay);
     }
 
+    // Play overlap sound
+    private void playOverlapSound()
+    {
+        // If the object was not overlaped then play a sound
+        if (wasOverlaped == false)
+        {
+            overlapSoundSource.Play();
+        }
+    }
+
     // When the point block overlaps with an object
     public void OnTriggerEnter(Collider other)
     {
@@ -174,6 +191,10 @@ public class PointBlock : MonoBehaviour
             gameManager.setComboSize(gameManager.getComboSize() + 1);
 
             // Play a sound effect
+            playOverlapSound();
+
+            // Mark the object as overlaped
+            wasOverlaped = true;
 
             // Play a particle effect
             ParticleManager.playParticleEffect(collisionParticleEffect, transform.position, Quaternion.identity);
@@ -199,6 +220,9 @@ public class PointBlock : MonoBehaviour
     private IEnumerator enableObject()
     {
         yield return new WaitForSeconds(reEnableTime);
+
+        // Mark the object as not overlaped
+        wasOverlaped = false;
 
         // Enable the colliders and increase the object's opacity
         objectCollider.enabled = true;

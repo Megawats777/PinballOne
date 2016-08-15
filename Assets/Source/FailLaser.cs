@@ -44,6 +44,9 @@ public class FailLaser : MonoBehaviour
             // Reset the current combo
             gameManager.resetCurrentCombo();
 
+            // Play the ball's destruction sound source
+            other.gameObject.GetComponent<Ball>().destructionSoundSource.Play();
+
             // Disable the ball
             ball.setBallStatus(false, true, false, false);
 

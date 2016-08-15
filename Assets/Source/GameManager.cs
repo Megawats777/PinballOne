@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
     // Is the game paused
     public bool isGamePaused = false;
 
+    // Reference to the gameOverAudioSource
+    private AudioSource gameOverAudioSource;
+
     /*-Timer Properties-*/
     [Header("Timer Properties"), SerializeField]
     public int timerMinutes;
@@ -45,6 +48,9 @@ public class GameManager : MonoBehaviour
     // Called before start
     public void Awake()
     {
+        // Get the game over audio source
+        gameOverAudioSource = GetComponent<AudioSource>();
+
         // Get the main HUD manager
         mainHUDManager = FindObjectOfType<MainHUDManager>();
 
@@ -106,6 +112,9 @@ public class GameManager : MonoBehaviour
         {
             // Update the HUD
             mainHUDManager.setTimeTextContent(0, timerSeconds);
+
+            // Play a sound
+            gameOverAudioSource.Play();
 
             // Stop the timer
             stopGameTimer();

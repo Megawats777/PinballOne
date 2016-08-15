@@ -28,8 +28,8 @@ GameObject:
   - 65: {fileID: 6574996}
   - 23: {fileID: 2331200}
   - 54: {fileID: 5407276}
-  - 114: {fileID: 11447664}
   - 82: {fileID: 8267752}
+  - 114: {fileID: 11447664}
   m_Layer: 0
   m_Name: PointBlock_Mid
   m_TagString: PointBlock
@@ -130,10 +130,11 @@ AudioSource:
   m_GameObject: {fileID: 181276}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  OutputAudioMixerGroup: {fileID: 24300001, guid: 59be520a7587cef4c8cf60eb76c04d86,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: ffb159a21c8a04135a5616979c828fab, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
