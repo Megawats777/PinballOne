@@ -34,6 +34,8 @@ public class PointBlock : MonoBehaviour
     [SerializeField]
     private GameObject collisionParticleEffect;
 
+    
+
     // Can the block move
     private bool canMove = true;
 
