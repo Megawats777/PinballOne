@@ -175,7 +175,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!1001 &627179293
+--- !u!1001 &315615426
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -258,34 +258,6 @@ Prefab:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 190895469}
-    - target: {fileID: 22462770, guid: 9982db924e598f8409093163708fd664, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22464816, guid: 9982db924e598f8409093163708fd664, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22496694, guid: 9982db924e598f8409093163708fd664, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11489870, guid: 9982db924e598f8409093163708fd664, type: 2}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11489870, guid: 9982db924e598f8409093163708fd664, type: 2}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11489870, guid: 9982db924e598f8409093163708fd664, type: 2}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11489870, guid: 9982db924e598f8409093163708fd664, type: 2}
-      propertyPath: m_Color.a
-      value: 0.392
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9982db924e598f8409093163708fd664, type: 2}
   m_IsPrefabParent: 0

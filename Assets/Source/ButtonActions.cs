@@ -57,4 +57,5 @@ public class ButtonActions : MonoBehaviour
     {
         Application.Quit();
     }
+
 }

@@ -42,6 +42,7 @@ GameObject:
   - 224: {fileID: 22468204}
   - 222: {fileID: 22235690}
   - 114: {fileID: 11489870}
+  - 95: {fileID: 9502308}
   m_Layer: 5
   m_Name: Background Panel
   m_TagString: Untagged
@@ -61,7 +62,7 @@ GameObject:
   - 114: {fileID: 11442596}
   - 114: {fileID: 11480298}
   m_Layer: 5
-  m_Name: HelpButton
+  m_Name: TutorialButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,6 +95,7 @@ GameObject:
   - 224: {fileID: 22496284}
   - 222: {fileID: 22206302}
   - 114: {fileID: 11480148}
+  - 95: {fileID: 9593294}
   m_Layer: 5
   m_Name: TitleText
   m_TagString: Untagged
@@ -165,6 +167,7 @@ GameObject:
   - 223: {fileID: 22380778}
   - 114: {fileID: 11461336}
   - 114: {fileID: 11428896}
+  - 114: {fileID: 11488738}
   - 114: {fileID: 11492464}
   m_Layer: 5
   m_Name: MainMenuCanvas
@@ -202,6 +205,40 @@ Transform:
   m_Children: []
   m_Father: {fileID: 22490262}
   m_RootOrder: 1
+--- !u!95 &9502308
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 114414}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6b08641055506d641b59bb2173b72b2e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &9593294
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 133876}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 407f78b52dd5a0643906c95600da8b66, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11400010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -441,9 +478,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11492464}
-        m_MethodName: openLevel
-        m_Mode: 5
+      - m_Target: {fileID: 11488738}
+        m_MethodName: openLevelSelectScreen
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -486,7 +523,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Help
+  m_Text: Tutorial
 --- !u!114 &11461336
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -607,6 +644,19 @@ MonoBehaviour:
         m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &11488738
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 178468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cca4f37da46ca584492f66202713d828, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameTitleAnimator: {fileID: 9593294}
+  welcomeBackgroundPanelAnimator: {fileID: 9502308}
 --- !u!114 &11489870
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -806,7 +856,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 125508}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.000012652528}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 22445468}
@@ -834,8 +884,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -297, y: -10}
-  m_SizeDelta: {x: 442, y: 474}
+  m_AnchoredPosition: {x: -346, y: 0}
+  m_SizeDelta: {x: 541.4, y: 474}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &22478216
 RectTransform:
