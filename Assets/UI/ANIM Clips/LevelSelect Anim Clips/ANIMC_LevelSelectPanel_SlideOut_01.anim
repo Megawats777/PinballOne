@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: ANIMC_GameTitle_Idle_01
+  m_Name: ANIMC_LevelSelectPanel_SlideOut_01
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -24,7 +24,7 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: 0.016666668
+      - time: 0.033333335
         value: 0
         inSlope: 0
         outSlope: 0
@@ -40,14 +40,14 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: -135
-        inSlope: -1979.9999
-        outSlope: -1979.9999
+        value: 111.9
+        inSlope: -7256.9995
+        outSlope: -7256.9995
         tangentMode: 10
-      - time: 0.016666668
-        value: -168
-        inSlope: -1979.9999
-        outSlope: -1979.9999
+      - time: 0.033333335
+        value: -130
+        inSlope: -7256.9995
+        outSlope: -7256.9995
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -82,7 +82,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.016666668
+    m_StopTime: 0.033333335
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -106,7 +106,7 @@ AnimationClip:
         inSlope: 0
         outSlope: 0
         tangentMode: 10
-      - time: 0.016666668
+      - time: 0.033333335
         value: 0
         inSlope: 0
         outSlope: 0
@@ -122,14 +122,14 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: -135
-        inSlope: -1979.9999
-        outSlope: -1979.9999
+        value: 111.9
+        inSlope: -7256.9995
+        outSlope: -7256.9995
         tangentMode: 10
-      - time: 0.016666668
-        value: -168
-        inSlope: -1979.9999
-        outSlope: -1979.9999
+      - time: 0.033333335
+        value: -130
+        inSlope: -7256.9995
+        outSlope: -7256.9995
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2

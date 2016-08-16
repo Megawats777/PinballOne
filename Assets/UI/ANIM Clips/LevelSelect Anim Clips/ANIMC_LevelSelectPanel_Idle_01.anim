@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: ANIMC_GameTitle_Idle_01
+  m_Name: ANIMC_LevelSelectPanel_Idle_01
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -40,14 +40,14 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: -135
-        inSlope: -1979.9999
-        outSlope: -1979.9999
+        value: -152
+        inSlope: 59.999996
+        outSlope: 59.999996
         tangentMode: 10
       - time: 0.016666668
-        value: -168
-        inSlope: -1979.9999
-        outSlope: -1979.9999
+        value: -151
+        inSlope: 59.999996
+        outSlope: 59.999996
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -122,14 +122,14 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: -135
-        inSlope: -1979.9999
-        outSlope: -1979.9999
+        value: -152
+        inSlope: 59.999996
+        outSlope: 59.999996
         tangentMode: 10
       - time: 0.016666668
-        value: -168
-        inSlope: -1979.9999
-        outSlope: -1979.9999
+        value: -151
+        inSlope: 59.999996
+        outSlope: 59.999996
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
