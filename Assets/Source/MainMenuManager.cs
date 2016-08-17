@@ -17,6 +17,9 @@ public class MainMenuManager : MonoBehaviour
     [Header("Level Select Screen Properties"), SerializeField]
     private Animator levelSelectPanelAnimator;
 
+    [SerializeField]
+    private Animator stageInfoPanelAnimator;
+
     // Screen groups
     [Header("Screen Groups"), SerializeField]
     private GameObject welcomeScreenGroup;
@@ -27,8 +30,9 @@ public class MainMenuManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        // Enable the welcome screen group
+        // Enable all HUD groups
         welcomeScreenGroup.SetActive(true);
+        levelSelectScreenGroup.SetActive(true);
     }
 
     // Update is called once per frame
@@ -49,6 +53,11 @@ public class MainMenuManager : MonoBehaviour
         // Slide in the level select screen elements
         levelSelectPanelAnimator.SetBool("isIdle", false);
         levelSelectPanelAnimator.SetBool("isSlidingOut", false);
+
+        // Slide in the stage info panel
+        stageInfoPanelAnimator.SetBool("isIdle", false);
+        stageInfoPanelAnimator.SetBool("isSlidingOut", false);
+        stageInfoPanelAnimator.SetBool("isSlidingIn", true);
     }
 
     // Open the welcome screen
@@ -56,6 +65,10 @@ public class MainMenuManager : MonoBehaviour
     {
         // Slide out the level select screen elements
         levelSelectPanelAnimator.SetBool("isSlidingOut", true);
+
+        // Slide out the stage info panel
+        stageInfoPanelAnimator.SetBool("isSlidingIn", false);
+        stageInfoPanelAnimator.SetBool("isSlidingOut", true);
 
         // Slide in the welcome screen elements
         gameTitleAnimator.SetBool("isSlidingOut", false);
