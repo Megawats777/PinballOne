@@ -213,6 +213,9 @@ public class GameManager : MonoBehaviour
         // Set game over screen message
         setGameOverScreenMessage();
 
+        // Play a sound
+        gameOverAudioSource.Play();
+
         // Set the game to be over
         isGameOver = true;
 
@@ -309,7 +312,7 @@ public class GameManager : MonoBehaviour
         mainHUDManager.setBallCountContent(playerBallCount.ToString());
 
         // If the ball count is less than 1 end the game
-        if (playerBallCount < 0)
+        if (playerBallCount < 1)
         {
             // Stop the timer
             stopGameTimer();
