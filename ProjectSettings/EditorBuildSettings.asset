@@ -13,5 +13,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Game Scenes/Scene_Stage_TimeGlass_01.unity
   - enabled: 1
     path: Assets/Scenes/Game Scenes/Scene_Stage_DumbBell_01.unity
+  - enabled: 1
+    path: Assets/Scenes/Game Scenes/Scene_Stage_WideRect_01.unity
   - enabled: 0
     path: Assets/Scenes/Reference Scenes/Scene_GameArea_01.unity
