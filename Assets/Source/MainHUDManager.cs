@@ -68,9 +68,9 @@ public class MainHUDManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        // Set all groups to be visible
+        // Set all but the main HUD groups to be visible
         setHUDGroupVisibility(introHUDGroup, true);
-        setHUDGroupVisibility(mainHUDGroup, true);
+        setHUDGroupVisibility(mainHUDGroup, false);
         setHUDGroupVisibility(gameOverHUDGroup, true);
         setHUDGroupVisibility(pauseHUDGroup, true);
 
@@ -99,7 +99,7 @@ public class MainHUDManager : MonoBehaviour
     {
         group.SetActive(status);
     }
-    
+
     /*--Main Game HUD Functions--*/
 
     // Set the content of the main score text object
@@ -142,7 +142,7 @@ public class MainHUDManager : MonoBehaviour
             // Set the content of the combo bonus object
             comboBonusText.text = "+" + comboBonus.ToString();
         }
-        
+
         // If the HUD objects cannot be visible then set the content to null
         if (visibilityStatus == false)
         {
@@ -183,5 +183,39 @@ public class MainHUDManager : MonoBehaviour
     public void setHighestComboTextContent(string content)
     {
         highestComboText.text = content;
+    }
+
+    /*-Animation Functions-*/
+
+    // Slide the pause panel in
+    public void slidePausePanelIn()
+    {
+        pausePanelAnimator.SetBool("isIdle", false);
+        pausePanelAnimator.SetBool("isSlidingOut", false);
+        pausePanelAnimator.SetBool("isSlidingIn", true);
+    }
+
+    // Slide the pause panel out
+    public void slidePausePanelOut()
+    {
+        pausePanelAnimator.SetBool("isIdle", false);
+        pausePanelAnimator.SetBool("isSlidingOut", true);
+        pausePanelAnimator.SetBool("isSlidingIn", false);
+    }
+
+    // Slide the game over panel in
+    public void slideGameOverPanelIn()
+    {
+        gameOverPanelAnimator.SetBool("isIdle", false);
+        gameOverPanelAnimator.SetBool("isSlidingOut", false);
+        gameOverPanelAnimator.SetBool("isSlidingIn", true);
+    }
+
+    // Slide the game over panel out
+    public void slideGameOverPanelOut()
+    {
+        gameOverPanelAnimator.SetBool("isIdle", false);
+        gameOverPanelAnimator.SetBool("isSldingOut", true);
+        gameOverPanelAnimator.SetBool("isSldingIn", false);
     }
 }
