@@ -50,6 +50,11 @@ public class MainHUDManager : MonoBehaviour
     public GameObject gameOverHUDGroup;
     public GameObject pauseHUDGroup;
 
+    // HUD Animators
+    [Header("HUD Animators")]
+    public Animator gameOverPanelAnimator;
+    public Animator pausePanelAnimator;
+
     /*-External References-*/
     GameManager gameManager;
 
@@ -63,13 +68,11 @@ public class MainHUDManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        // Set intro group to be visible first
+        // Set all groups to be visible
         setHUDGroupVisibility(introHUDGroup, true);
-
-        // Hide other pause groups
-        setHUDGroupVisibility(mainHUDGroup, false);
-        setHUDGroupVisibility(gameOverHUDGroup, false);
-        setHUDGroupVisibility(pauseHUDGroup, false);
+        setHUDGroupVisibility(mainHUDGroup, true);
+        setHUDGroupVisibility(gameOverHUDGroup, true);
+        setHUDGroupVisibility(pauseHUDGroup, true);
 
         // Set the main score and ball count text content to 0
         setMainScoreTextContent("0");
@@ -96,7 +99,7 @@ public class MainHUDManager : MonoBehaviour
     {
         group.SetActive(status);
     }
-
+    
     /*--Main Game HUD Functions--*/
 
     // Set the content of the main score text object

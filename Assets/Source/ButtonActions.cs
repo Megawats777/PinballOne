@@ -35,7 +35,6 @@ public class ButtonActions : MonoBehaviour
     public void pauseWrapper()
     {
         gameManager.pauseGame();
-        mainHUDManager.setHUDGroupVisibility(mainHUDManager.mainHUDGroup, false);
     }
 
     // Open a level

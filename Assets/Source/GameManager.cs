@@ -158,7 +158,7 @@ public class GameManager : MonoBehaviour
         }
 
         // Show the pause menu
-        mainHUDManager.setHUDGroupVisibility(mainHUDManager.pauseHUDGroup, true);
+
         mainHUDManager.setCurrentScorePauseTextContent(playerScore.ToString());
         
     }
@@ -188,7 +188,7 @@ public class GameManager : MonoBehaviour
         paddleController.destinationLocation = paddleController.defaultLocation;
 
         // Hide the pause menu
-        mainHUDManager.setHUDGroupVisibility(mainHUDManager.pauseHUDGroup, false);
+
     }
 
     // Set game over screen message
@@ -236,7 +236,7 @@ public class GameManager : MonoBehaviour
         mainHUDManager.setGameOverScoreText(playerScore.ToString());
         mainHUDManager.setHighestComboTextContent(highestComboSize.ToString());
         mainHUDManager.setGameOverScreenTitle(gameOverScreenMessage);
-        mainHUDManager.setHUDGroupVisibility(mainHUDManager.gameOverHUDGroup, true);
+
     }
 
     // Reset current combo
