@@ -25,7 +25,6 @@ public class PaddleController : MonoBehaviour
     public bool canPlayerUsePaddle = false;
 
     // Reference to the paddle nav point
-    [SerializeField]
     private PaddleNavPoint paddleNavPoint;
 
     // The paddle's rigidbody
@@ -44,6 +43,9 @@ public class PaddleController : MonoBehaviour
 
         // Get the Ball
         ballRef = FindObjectOfType<Ball>();
+
+        // Get the paddle nav point
+        paddleNavPoint = FindObjectOfType<PaddleNavPoint>();
 
         // Get the GameManager
         gameManager = FindObjectOfType<GameManager>();
