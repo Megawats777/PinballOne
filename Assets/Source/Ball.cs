@@ -90,10 +90,13 @@ public class Ball : MonoBehaviour
 
             yield return new WaitForSeconds(1.05f);
 
-            ballCollider.enabled = true;
-            ballRigidbody.useGravity = true;
-            ballRigidbody.isKinematic = false;
-            ballMeshRenderer.enabled = true;
+            if (gameManager.isGameOver == false)
+            {
+                ballCollider.enabled = true;
+                ballRigidbody.useGravity = true;
+                ballRigidbody.isKinematic = false;
+                ballMeshRenderer.enabled = true;
+            }
         }
     }
 }
