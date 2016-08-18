@@ -80,17 +80,13 @@ public class MainMenuManager : MonoBehaviour
     public void openLevelSelectScreen()
     {
         // Slide out the welcome screen elements
-        gameTitleAnimator.SetBool("isSlidingOut", true);
-        welcomeBackgroundPanelAnimator.SetBool("isSlidingOut", true);
+        slideOutWelcomeScreen();
 
         // Slide in the level select screen elements
-        levelSelectPanelAnimator.SetBool("isIdle", false);
-        levelSelectPanelAnimator.SetBool("isSlidingOut", false);
+        slideInLevelSelectScreen();
 
         // Slide in the stage info panel
-        stageInfoPanelAnimator.SetBool("isIdle", false);
-        stageInfoPanelAnimator.SetBool("isSlidingOut", false);
-        stageInfoPanelAnimator.SetBool("isSlidingIn", true);
+        slideInStageInfoPanel();
 
         // Set the current stage information that is displayed
         setDisplayedStageInfo(0);
@@ -100,14 +96,58 @@ public class MainMenuManager : MonoBehaviour
     public void openWelcomeScreen()
     {
         // Slide out the level select screen elements
-        levelSelectPanelAnimator.SetBool("isSlidingOut", true);
+        slideOutLevelSelectScreen();
 
         // Slide out the stage info panel
-        stageInfoPanelAnimator.SetBool("isSlidingIn", false);
-        stageInfoPanelAnimator.SetBool("isSlidingOut", true);
+        slideOutStageInfoPanel();
 
         // Slide in the welcome screen elements
+        slideInWelcomeScreen();
+    }
+
+    /*--Slide in UI elements--*/
+
+    // Slide in the welcome screen elements
+    public void slideInWelcomeScreen()
+    {
         gameTitleAnimator.SetBool("isSlidingOut", false);
         welcomeBackgroundPanelAnimator.SetBool("isSlidingOut", false);
+    }
+
+    // Slide in the level select screen elements
+    public void slideInLevelSelectScreen()
+    {
+        levelSelectPanelAnimator.SetBool("isIdle", false);
+        levelSelectPanelAnimator.SetBool("isSlidingOut", false);
+    }
+
+    // Slide in the stage info panel
+    public void slideInStageInfoPanel()
+    {
+        stageInfoPanelAnimator.SetBool("isIdle", false);
+        stageInfoPanelAnimator.SetBool("isSlidingOut", false);
+        stageInfoPanelAnimator.SetBool("isSlidingIn", true);
+    }
+
+    /*--Slide out UI elements--*/
+
+    // Slide out the welcome screen elements
+    public void slideOutWelcomeScreen()
+    {
+        gameTitleAnimator.SetBool("isSlidingOut", true);
+        welcomeBackgroundPanelAnimator.SetBool("isSlidingOut", true);
+    }
+
+    // Slide out the level select screen elements
+    public void slideOutLevelSelectScreen()
+    {
+        levelSelectPanelAnimator.SetBool("isSlidingOut", true);
+    }
+
+    // Slide out the stage info panel
+    public void slideOutStageInfoPanel()
+    {
+        stageInfoPanelAnimator.SetBool("isSlidingIn", false);
+        stageInfoPanelAnimator.SetBool("isSlidingOut", true);
     }
 }

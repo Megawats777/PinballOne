@@ -1,40 +1,40 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &142872
+--- !u!1 &122268
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 422118}
-  - 198: {fileID: 19827742}
-  - 199: {fileID: 19900320}
+  - 4: {fileID: 418542}
+  - 198: {fileID: 19800714}
+  - 199: {fileID: 19978880}
   m_Layer: 0
-  m_Name: P_Menu_Sparks
-  m_TagString: Untagged
+  m_Name: P_Loading_Sparks_01
+  m_TagString: LoadingParticle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &422118
+--- !u!4 &418542
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 142872}
+  m_GameObject: {fileID: 122268}
   m_LocalRotation: {x: -0.5554889, y: 0.1506515, z: -0.103158295, w: 0.81123036}
-  m_LocalPosition: {x: -9.8, y: -24, z: 22}
+  m_LocalPosition: {x: -9.3, y: -13.69, z: -4.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!198 &19827742
+--- !u!198 &19800714
 ParticleSystem:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 142872}
+  m_GameObject: {fileID: 122268}
   serializedVersion: 2
   lengthInSec: 1
   startDelay:
@@ -1498,12 +1498,12 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
---- !u!199 &19900320
+--- !u!199 &19978880
 ParticleSystemRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 142872}
+  m_GameObject: {fileID: 122268}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -1548,5 +1548,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 142872}
+  m_RootGameObject: {fileID: 122268}
   m_IsPrefabParent: 1

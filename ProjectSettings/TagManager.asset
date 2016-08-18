@@ -9,6 +9,7 @@ TagManager:
   - NavPoint
   - FailPoint
   - PointBlock
+  - LoadingParticle
   layers:
   - Default
   - TransparentFX

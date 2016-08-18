@@ -444,18 +444,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 19827742, guid: abd33997718285e4a9f3dead65aa4398, type: 2}
-      propertyPath: ShapeModule.radius
-      value: 20.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 19827742, guid: abd33997718285e4a9f3dead65aa4398, type: 2}
-      propertyPath: EmissionModule.rate.scalar
-      value: 150
-      objectReference: {fileID: 0}
-    - target: {fileID: 19827742, guid: abd33997718285e4a9f3dead65aa4398, type: 2}
-      propertyPath: InitialModule.startSpeed.minCurve.m_Curve.Array.data[0].value
-      value: 0.1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abd33997718285e4a9f3dead65aa4398, type: 2}
   m_IsPrefabParent: 0

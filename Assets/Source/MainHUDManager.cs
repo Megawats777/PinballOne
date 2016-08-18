@@ -215,7 +215,7 @@ public class MainHUDManager : MonoBehaviour
     public void slideGameOverPanelOut()
     {
         gameOverPanelAnimator.SetBool("isIdle", false);
-        gameOverPanelAnimator.SetBool("isSldingOut", true);
-        gameOverPanelAnimator.SetBool("isSldingIn", false);
+        gameOverPanelAnimator.SetBool("isSlidingOut", true);
+        gameOverPanelAnimator.SetBool("isSlidingIn", false);
     }
 }
