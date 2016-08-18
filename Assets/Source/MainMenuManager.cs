@@ -30,6 +30,9 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField]
     private Text stageInfoTimeLimitText;
 
+    [SerializeField]
+    private RawImage stageInfoThumbnailImage;
+
     // Screen groups
     [Header("Screen Groups"), SerializeField]
     private GameObject welcomeScreenGroup;
@@ -51,6 +54,10 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField]
     private string[] levelTimeLimits;
 
+    // Level thumbnails
+    [SerializeField]
+    private Texture[] levelThumbnails;
+
     // Use this for initialization
     void Start()
     {
@@ -71,6 +78,7 @@ public class MainMenuManager : MonoBehaviour
         stageInfoNameText.text = levelNames[levelIndex];
         stageInfoTargetScoreText.text = levelTargetScores[levelIndex];
         stageInfoTimeLimitText.text = levelTimeLimits[levelIndex];
+        stageInfoThumbnailImage.texture = levelThumbnails[levelIndex];
     }
 
 

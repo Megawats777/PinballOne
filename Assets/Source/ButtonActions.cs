@@ -67,6 +67,7 @@ public class ButtonActions : MonoBehaviour
     public void pauseWrapper()
     {
         gameManager.pauseGame();
+        mainHUDManager.mainHUDGroup.SetActive(false);
     }
 
     /*--Open Level Functions--*/
@@ -80,6 +81,12 @@ public class ButtonActions : MonoBehaviour
         if (loadingParticle)
         {
             loadingParticle.SetActive(true);
+        }
+
+        // If a ball exists disable it
+        if (ballRef)
+        {
+            ballRef.setBallStatus(true, true, false, false);
         }
 
         // Show the loading screen
