@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class MainMenuManager : MonoBehaviour
@@ -20,12 +21,35 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField]
     private Animator stageInfoPanelAnimator;
 
+    [SerializeField]
+    private Text stageInfoNameText;
+
+    [SerializeField]
+    private Text stageInfoTargetScoreText;
+
+    [SerializeField]
+    private Text stageInfoTimeLimitText;
+
     // Screen groups
     [Header("Screen Groups"), SerializeField]
     private GameObject welcomeScreenGroup;
 
     [SerializeField]
     private GameObject levelSelectScreenGroup;
+
+    /*-Level Display Properties-*/
+
+    // Level Names
+    [Header("Level Display Properties"), SerializeField]
+    private string[] levelNames;
+
+    // Level target scores
+    [SerializeField]
+    private string[] levelTargetScores;
+
+    // Level time limits
+    [SerializeField]
+    private string[] levelTimeLimits;
 
     // Use this for initialization
     void Start()
@@ -40,6 +64,15 @@ public class MainMenuManager : MonoBehaviour
     {
 
     }
+
+    // Set the current stage information that is displayed
+    public void setDisplayedStageInfo(int levelIndex)
+    {
+        stageInfoNameText.text = levelNames[levelIndex];
+        stageInfoTargetScoreText.text = levelTargetScores[levelIndex];
+        stageInfoTimeLimitText.text = levelTimeLimits[levelIndex];
+    }
+
 
     /*-Screen transition functions-*/
 
@@ -58,6 +91,9 @@ public class MainMenuManager : MonoBehaviour
         stageInfoPanelAnimator.SetBool("isIdle", false);
         stageInfoPanelAnimator.SetBool("isSlidingOut", false);
         stageInfoPanelAnimator.SetBool("isSlidingIn", true);
+
+        // Set the current stage information that is displayed
+        setDisplayedStageInfo(0);
     }
 
     // Open the welcome screen

@@ -199,6 +199,7 @@ GameObject:
   - 222: {fileID: 22211792}
   - 114: {fileID: 11451346}
   - 114: {fileID: 11472744}
+  - 114: {fileID: 11459224}
   m_Layer: 5
   m_Name: StageTwoButton
   m_TagString: Untagged
@@ -287,6 +288,7 @@ GameObject:
   - 222: {fileID: 22237356}
   - 114: {fileID: 11439210}
   - 114: {fileID: 11417192}
+  - 114: {fileID: 11439736}
   m_Layer: 5
   m_Name: StageOneButton
   m_TagString: Untagged
@@ -354,6 +356,7 @@ GameObject:
   - 222: {fileID: 22282328}
   - 114: {fileID: 11468030}
   - 114: {fileID: 11427230}
+  - 114: {fileID: 11427474}
   m_Layer: 5
   m_Name: StageFourButton
   m_TagString: Untagged
@@ -475,6 +478,7 @@ GameObject:
   - 222: {fileID: 22205566}
   - 114: {fileID: 11427584}
   - 114: {fileID: 11496572}
+  - 114: {fileID: 11476518}
   m_Layer: 5
   m_Name: StageThreeButton
   m_TagString: Untagged
@@ -819,7 +823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -958,6 +962,36 @@ MonoBehaviour:
         m_CallState: 1
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &11427474
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11488738}
+          m_MethodName: setDisplayedStageInfo
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 3
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 1
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!114 &11427584
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1098,6 +1132,36 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11439736
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11488738}
+          m_MethodName: setDisplayedStageInfo
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 1
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!114 &11440912
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1415,6 +1479,36 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Stage 1
+--- !u!114 &11459224
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 134780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11488738}
+          m_MethodName: setDisplayedStageInfo
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 1
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!114 &11459354
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1715,6 +1809,36 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11476518
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 176278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11488738}
+          m_MethodName: setDisplayedStageInfo
+          m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 2
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 1
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!114 &11480148
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1841,8 +1965,26 @@ MonoBehaviour:
   welcomeBackgroundPanelAnimator: {fileID: 9502308}
   levelSelectPanelAnimator: {fileID: 9587368}
   stageInfoPanelAnimator: {fileID: 9572952}
+  stageInfoNameText: {fileID: 11463648}
+  stageInfoTargetScoreText: {fileID: 11425158}
+  stageInfoTimeLimitText: {fileID: 11463152}
   welcomeScreenGroup: {fileID: 107726}
   levelSelectScreenGroup: {fileID: 159558}
+  levelNames:
+  - Triangle
+  - Time Glass
+  - Dumb Bell
+  - Wide Rect
+  levelTargetScores:
+  - 1000
+  - 1500
+  - 2500
+  - 1600
+  levelTimeLimits:
+  - 1:00
+  - 1:30
+  - 2:00
+  - 1:30
 --- !u!114 &11489870
 MonoBehaviour:
   m_ObjectHideFlags: 1
