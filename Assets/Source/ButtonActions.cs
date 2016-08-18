@@ -16,12 +16,16 @@ public class ButtonActions : MonoBehaviour
     PaddleController paddleRef;
     Ball ballRef;
     PointBlock[] pointBlocks;
+    LoadingScreen loadingScreenRef;
 
     // Called before start
     public void Awake()
     {
         // Get the GameManager
         gameManager = FindObjectOfType<GameManager>();
+
+        // Get the loading screen
+        loadingScreenRef = FindObjectOfType<LoadingScreen>();
 
         // Get the button's audio source component
         clickedAudioSource = GetComponent<AudioSource>();
@@ -78,6 +82,9 @@ public class ButtonActions : MonoBehaviour
             loadingParticle.SetActive(true);
         }
 
+        // Show the loading screen
+        loadingScreenRef.slideLoadingPanelIn();
+
         // Open a level with a delay
         StartCoroutine(openLevel(levelName));
     }
@@ -112,11 +119,10 @@ public class ButtonActions : MonoBehaviour
         // Enable the loading particle
         loadingParticle.SetActive(true);
 
-        // Stop the point blocks from moving
-        foreach (PointBlock pb in pointBlocks)
-        {
-            pb.stopMovement();
-        }
+        // Show the loading screen
+        loadingScreenRef.slideLoadingPanelIn();
+
+        
 
         // Reload the current level with a delay
         StartCoroutine(reloadCurrentLevel(SceneManager.GetActiveScene().name));
@@ -142,6 +148,9 @@ public class ButtonActions : MonoBehaviour
 
         // Enable the loading particle
         loadingParticle.SetActive(true);
+
+        // Show the loading screen
+        loadingScreenRef.slideLoadingPanelIn();
 
         // Stop the point blocks from moving
         foreach (PointBlock pb in pointBlocks)
