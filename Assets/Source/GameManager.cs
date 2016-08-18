@@ -226,11 +226,11 @@ public class GameManager : MonoBehaviour
         ballRef.gameObject.SetActive(false);
         ballRef.setBallStatus(false, true, false, false);
 
-        // Have a delay
-        yield return new WaitForSeconds(1.5f);
-
         // Hide the main game HUD
         mainHUDManager.setHUDGroupVisibility(mainHUDManager.mainHUDGroup, false);
+
+        // Have a delay
+        yield return new WaitForSeconds(1.5f);
 
         // Show the game over screen
         mainHUDManager.setGameOverScoreText(playerScore.ToString());

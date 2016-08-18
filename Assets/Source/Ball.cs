@@ -24,6 +24,9 @@ public class Ball : MonoBehaviour
     [HideInInspector]
     public AudioSource destructionSoundSource;
 
+    /*-External References-*/
+    private GameManager gameManager;
+
     // Called before start
     public void Awake()
     {
@@ -38,6 +41,9 @@ public class Ball : MonoBehaviour
 
         // Get the ball's collider
         ballCollider = GetComponent<SphereCollider>();
+
+        // Get the gameManager
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     // Use this for initialization
@@ -75,16 +81,19 @@ public class Ball : MonoBehaviour
     // Reposition the ball
     public IEnumerator reEnableBall()
     {
-        yield return new WaitForSeconds(2.0f);
+        if (gameManager.isGameOver == false)
+        {
+            yield return new WaitForSeconds(2.0f);
 
-        // Set the location of the ball, renable it's mesh renderer, and make it no longer kinematic
-        ballRigidbody.MovePosition(startingPosition);
+            // Set the location of the ball, renable it's mesh renderer, and make it no longer kinematic
+            ballRigidbody.MovePosition(startingPosition);
 
-        yield return new WaitForSeconds(1.05f);
+            yield return new WaitForSeconds(1.05f);
 
-        ballCollider.enabled = true;
-        ballRigidbody.useGravity = true;
-        ballRigidbody.isKinematic = false;
-        ballMeshRenderer.enabled = true;
+            ballCollider.enabled = true;
+            ballRigidbody.useGravity = true;
+            ballRigidbody.isKinematic = false;
+            ballMeshRenderer.enabled = true;
+        }
     }
 }

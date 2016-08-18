@@ -55,6 +55,8 @@ public class MainHUDManager : MonoBehaviour
     public Animator gameOverPanelAnimator;
     public Animator pausePanelAnimator;
 
+    public bool canShowGameOverPanel = true;
+
     /*-External References-*/
     GameManager gameManager;
 
@@ -156,6 +158,7 @@ public class MainHUDManager : MonoBehaviour
     // Resume game wrapper
     public void resumeGameWrapper()
     {
+        canShowGameOverPanel = true;
         gameManager.resumeGame();
     }
 
@@ -206,9 +209,12 @@ public class MainHUDManager : MonoBehaviour
     // Slide the game over panel in
     public void slideGameOverPanelIn()
     {
-        gameOverPanelAnimator.SetBool("isIdle", false);
-        gameOverPanelAnimator.SetBool("isSlidingOut", false);
-        gameOverPanelAnimator.SetBool("isSlidingIn", true);
+        if (canShowGameOverPanel == true)
+        {
+            gameOverPanelAnimator.SetBool("isIdle", false);
+            gameOverPanelAnimator.SetBool("isSlidingOut", false);
+            gameOverPanelAnimator.SetBool("isSlidingIn", true);
+        }
     }
 
     // Slide the game over panel out

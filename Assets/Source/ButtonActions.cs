@@ -67,6 +67,7 @@ public class ButtonActions : MonoBehaviour
     public void pauseWrapper()
     {
         gameManager.pauseGame();
+        mainHUDManager.canShowGameOverPanel = false;
         mainHUDManager.mainHUDGroup.SetActive(false);
     }
 
@@ -76,6 +77,11 @@ public class ButtonActions : MonoBehaviour
     public void openLevelWrapper(string levelName)
     {
         Time.timeScale = 1.0f;
+
+        if (gameManager)
+        {
+            gameManager.isGameOver = true;
+        }
 
         // If a loading particle exists enable it
         if (loadingParticle)
@@ -110,6 +116,8 @@ public class ButtonActions : MonoBehaviour
     {
         Time.timeScale = 1.0f;
 
+        gameManager.isGameOver = true;
+
         // Prevent the player from using their paddle
         paddleRef.canPlayerUsePaddle = false;
 
@@ -139,6 +147,8 @@ public class ButtonActions : MonoBehaviour
     public void reloadCurrentLevelWrapperPauseScreen()
     {
         Time.timeScale = 1.0f;
+
+        gameManager.isGameOver = true;
 
         // Prevent the player from using their paddle
         paddleRef.canPlayerUsePaddle = false;
