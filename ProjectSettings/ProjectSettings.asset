@@ -84,14 +84,19 @@ PlayerSettings:
   wiiUAllowScreenCapture: 1
   wiiUControllerCount: 0
   m_SupportedAspectRatios:
-    4:3: 0
+    4:3: 1
     5:4: 0
-    16:10: 0
+    16:10: 1
     16:9: 1
     Others: 0
   bundleIdentifier: com.Company.ProductName
   bundleVersion: 1.0
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: 8300000, guid: 2f6b6d9929adf914485c6ca6e8dc87d9, type: 3}
+  - {fileID: 8300000, guid: a48fd208ad0ac4d41884ff5ef2c4b5cc, type: 3}
+  - {fileID: 8300000, guid: 3044fdf43026e6147951a621273faf63, type: 3}
+  - {fileID: 8300000, guid: fd9fa53585eaa4d40bbac5ad28ddb5b0, type: 3}
+  - {fileID: 8300000, guid: b23c255460556f041b9763362d41bd66, type: 3}
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
   xboxOneDisableKinectGpuReservation: 0

@@ -34,12 +34,22 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField]
     private RawImage stageInfoThumbnailImage;
 
+    // Tutorial Screen properties
+    [Header("Tutorial Screen Properties"), SerializeField]
+    private Animator tutorialBackgroundPanelAnimator;
+
     // Screen groups
     [Header("Screen Groups"), SerializeField]
     private GameObject welcomeScreenGroup;
 
     [SerializeField]
     private GameObject levelSelectScreenGroup;
+
+    [SerializeField]
+    private GameObject tutorialScreenGroup;
+
+    [SerializeField]
+    private GameObject loadingScreenGroup;
 
     /*-Level Display Properties-*/
 
@@ -59,18 +69,26 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField]
     private Texture[] levelThumbnails;
 
-    // Use this for initialization
-    void Start()
+    // Called before start
+    public void Awake()
     {
         // Enable all HUD groups
         welcomeScreenGroup.SetActive(true);
         levelSelectScreenGroup.SetActive(true);
+        tutorialScreenGroup.SetActive(true);
+        loadingScreenGroup.SetActive(true);
+    }
+
+    // Use this for initialization
+    void Start()
+    {
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     // Set the current stage information that is displayed
@@ -110,8 +128,21 @@ public class MainMenuManager : MonoBehaviour
         // Slide out the stage info panel
         slideOutStageInfoPanel();
 
+        // Slide out the tutorial panel
+        slideOutTutorialPanel();
+
         // Slide in the welcome screen elements
         slideInWelcomeScreen();
+    }
+
+    // Open the tutorial screen
+    public void openTutorialScreen()
+    {
+        // Slide out the welcome screen
+        slideOutWelcomeScreen();
+
+        // Slide in the tutorial panel
+        slideInTutorialPanel();
     }
 
     /*--Slide in UI elements--*/
@@ -138,6 +169,14 @@ public class MainMenuManager : MonoBehaviour
         stageInfoPanelAnimator.SetBool("isSlidingIn", true);
     }
 
+    // Slide in the tutorial background panel
+    public void slideInTutorialPanel()
+    {
+        tutorialBackgroundPanelAnimator.SetBool("isIdle", false);
+        tutorialBackgroundPanelAnimator.SetBool("isSlidingOut", false);
+        tutorialBackgroundPanelAnimator.SetBool("isSlidingIn", true);
+    }
+
     /*--Slide out UI elements--*/
 
     // Slide out the welcome screen elements
@@ -158,5 +197,13 @@ public class MainMenuManager : MonoBehaviour
     {
         stageInfoPanelAnimator.SetBool("isSlidingIn", false);
         stageInfoPanelAnimator.SetBool("isSlidingOut", true);
+    }
+
+    // Slide out the tutorial background panel
+    public void slideOutTutorialPanel()
+    {
+        tutorialBackgroundPanelAnimator.SetBool("isIdle", false);
+        tutorialBackgroundPanelAnimator.SetBool("isSlidingIn", false);
+        tutorialBackgroundPanelAnimator.SetBool("isSlidingOut", true);
     }
 }
